@@ -9,7 +9,7 @@ import SwiftUI
 
 struct listComponent: View {
     
-    var todoList : TodoList;
+    var todoList : TodoListDTO;
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {

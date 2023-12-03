@@ -45,36 +45,4 @@ struct TodoListDTO : Identifiable {
         self.status = status
         self.transportationType = transportationType
     }
-    
-    
-    func intoNS(moc : NSManagedObjectContext) -> TodoListNS? {
-        var tdList = TodoListNS(context: moc)
-        tdList.dateTime = self.dateTime
-        tdList.eventDescription = self.eventDescription
-        
-        
-        // MARK: User
-        if self.uLatitude != nil && self.uLongitude != nil {
-            tdList.uLatitude = self.uLatitude!
-            tdList.uLongitude = self.uLongitude!
-        } else {
-            print("Todolist Latitude and longitude is still nil")
-            return nil
-        }
-        
-        // MARK: Destination
-        if self.dLatitude != nil && self.dLongitude != nil {
-            tdList.dLatitude = self.dLatitude!
-            tdList.dLongitude = self.dLongitude!
-        } else {
-            print("Todolist Latitude and longitude is still nil")
-            return nil
-        }
-        
-        tdList.name = self.name
-        tdList.status = self.status
-        tdList.transportationType = self.transportationType
-        tdList.uuid = self.id
-        return tdList
-    }
 }

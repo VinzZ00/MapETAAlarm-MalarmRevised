@@ -8,7 +8,7 @@
 import Foundation
 import os
 
-class MapKitServerRepository {
+class LocalRepository {
     let logger : Logger = Logger(subsystem: "com.AA.ETAMapAlarm", category: "MapKitServerRepository")
     let CoreData = CoreDataDataSource()
 }

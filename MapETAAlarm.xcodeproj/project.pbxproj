@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		AC5F40562B1CECF600B38FC5 /* TodoListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40502B1CECF600B38FC5 /* TodoListDTO.swift */; };
-		AC5F40572B1CECF600B38FC5 /* MapKitServerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40522B1CECF600B38FC5 /* MapKitServerRepository.swift */; };
+		AC5F40572B1CECF600B38FC5 /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40522B1CECF600B38FC5 /* LocalRepository.swift */; };
 		AC5F40592B1CECF600B38FC5 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40552B1CECF600B38FC5 /* CoreData.swift */; };
 		AC5F40612B1CEFA000B38FC5 /* MapETAAlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40602B1CEFA000B38FC5 /* MapETAAlarmTests.swift */; };
 		AC5F40702B1CF0EB00B38FC5 /* listComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F406F2B1CF0EB00B38FC5 /* listComponent.swift */; };
 		AC5F40752B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40742B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift */; };
 		AC5F40772B1CF11E00B38FC5 /* MapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40762B1CF11E00B38FC5 /* MapViewRepresentable.swift */; };
 		AC5F407D2B1CF60700B38FC5 /* CLLocation+CLLocation2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F407C2B1CF60700B38FC5 /* CLLocation+CLLocation2D.swift */; };
+		AC5F40832B1D03DF00B38FC5 /* FetchTodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40822B1D03DF00B38FC5 /* FetchTodoList.swift */; };
+		AC5F40852B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40842B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift */; };
+		AC5F40872B1D088100B38FC5 /* AddTodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40862B1D088100B38FC5 /* AddTodoList.swift */; };
+		AC5F40892B1D091500B38FC5 /* UpdateTodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40882B1D091500B38FC5 /* UpdateTodoList.swift */; };
 		ACA483322B1CDBDE00B9E7D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA483312B1CDBDE00B9E7D7 /* Assets.xcassets */; };
 		ACA483352B1CDBDE00B9E7D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA483342B1CDBDE00B9E7D7 /* Preview Assets.xcassets */; };
 		ACA483452B1CDC8700B9E7D7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA4833F2B1CDC8700B9E7D7 /* CoreDataManager.swift */; };
@@ -37,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		AC5F40502B1CECF600B38FC5 /* TodoListDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListDTO.swift; sourceTree = "<group>"; };
-		AC5F40522B1CECF600B38FC5 /* MapKitServerRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitServerRepository.swift; sourceTree = "<group>"; };
+		AC5F40522B1CECF600B38FC5 /* LocalRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
 		AC5F40552B1CECF600B38FC5 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		AC5F405E2B1CEFA000B38FC5 /* MapETAAlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapETAAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5F40602B1CEFA000B38FC5 /* MapETAAlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapETAAlarmTests.swift; sourceTree = "<group>"; };
@@ -46,6 +50,10 @@
 		AC5F40742B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitRepresentableUIComponent.swift; sourceTree = "<group>"; };
 		AC5F40762B1CF11E00B38FC5 /* MapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewRepresentable.swift; sourceTree = "<group>"; };
 		AC5F407C2B1CF60700B38FC5 /* CLLocation+CLLocation2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+CLLocation2D.swift"; sourceTree = "<group>"; };
+		AC5F40822B1D03DF00B38FC5 /* FetchTodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTodoList.swift; sourceTree = "<group>"; };
+		AC5F40842B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoListDTO+TodoListNS.swift"; sourceTree = "<group>"; };
+		AC5F40862B1D088100B38FC5 /* AddTodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoList.swift; sourceTree = "<group>"; };
+		AC5F40882B1D091500B38FC5 /* UpdateTodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTodoList.swift; sourceTree = "<group>"; };
 		ACA4832A2B1CDBDA00B9E7D7 /* MapETAAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapETAAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA483312B1CDBDE00B9E7D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACA483342B1CDBDE00B9E7D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -89,6 +97,7 @@
 		AC5F404E2B1CECBD00B38FC5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				AC5F40812B1D03CE00B38FC5 /* Usecases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -104,7 +113,7 @@
 		AC5F40512B1CECF600B38FC5 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				AC5F40522B1CECF600B38FC5 /* MapKitServerRepository.swift */,
+				AC5F40522B1CECF600B38FC5 /* LocalRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -138,7 +147,7 @@
 			children = (
 				AC5F406C2B1CF05E00B38FC5 /* Components */,
 				AC5F406A2B1CF03700B38FC5 /* View */,
-				AC5F40762B1CF11E00B38FC5 /* MapViewRepresentable.swift */,
+				AC5F40742B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -154,7 +163,7 @@
 		AC5F406C2B1CF05E00B38FC5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				AC5F40742B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift */,
+				AC5F40762B1CF11E00B38FC5 /* MapViewRepresentable.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -179,8 +188,19 @@
 			isa = PBXGroup;
 			children = (
 				AC5F407C2B1CF60700B38FC5 /* CLLocation+CLLocation2D.swift */,
+				AC5F40842B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		AC5F40812B1D03CE00B38FC5 /* Usecases */ = {
+			isa = PBXGroup;
+			children = (
+				AC5F40822B1D03DF00B38FC5 /* FetchTodoList.swift */,
+				AC5F40862B1D088100B38FC5 /* AddTodoList.swift */,
+				AC5F40882B1D091500B38FC5 /* UpdateTodoList.swift */,
+			);
+			path = Usecases;
 			sourceTree = "<group>";
 		};
 		ACA483212B1CDBDA00B9E7D7 = {
@@ -385,9 +405,13 @@
 				ACA4834F2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodeld in Sources */,
 				AC5F40592B1CECF600B38FC5 /* CoreData.swift in Sources */,
 				ACA483482B1CDC8700B9E7D7 /* MapETAAlarm.swift in Sources */,
-				AC5F40572B1CECF600B38FC5 /* MapKitServerRepository.swift in Sources */,
+				AC5F40872B1D088100B38FC5 /* AddTodoList.swift in Sources */,
+				AC5F40852B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift in Sources */,
+				AC5F40832B1D03DF00B38FC5 /* FetchTodoList.swift in Sources */,
+				AC5F40572B1CECF600B38FC5 /* LocalRepository.swift in Sources */,
 				AC5F40562B1CECF600B38FC5 /* TodoListDTO.swift in Sources */,
 				ACA483472B1CDC8700B9E7D7 /* Helper.swift in Sources */,
+				AC5F40892B1D091500B38FC5 /* UpdateTodoList.swift in Sources */,
 				ACA483492B1CDC8700B9E7D7 /* AppDelegate.swift in Sources */,
 				AC5F40752B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift in Sources */,
 				AC5F40702B1CF0EB00B38FC5 /* listComponent.swift in Sources */,
@@ -571,7 +595,7 @@
 				DEVELOPMENT_TEAM = 382VG5FRJK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MapETAAlarm/Info.plist;
+				INFOPLIST_FILE = MapETAAlarm/Config/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -601,7 +625,7 @@
 				DEVELOPMENT_TEAM = 382VG5FRJK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MapETAAlarm/Info.plist;
+				INFOPLIST_FILE = MapETAAlarm/Config/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -53,11 +53,13 @@ struct MapViewRepresentable : UIViewRepresentable {
     }
     
     typealias UIViewType = MKMapView
-    
     var size : CGSize
     var locationService = CoreLocationHandler.shared
     
-    @Binding var tappedCoordinate : CLLocationCoordinate2D
+    @Binding var error : NSError;
+    @Binding var selectedTransport : Int
+    @Binding var tappedCoordinate : CLLocationCoordinate2D?
+    @State var route : MKPolyline?;
     
     
     func makeCoordinator() -> Coordinator {
@@ -74,9 +76,49 @@ struct MapViewRepresentable : UIViewRepresentable {
         uiView.frame = CGRect(origin: CGPointZero, size: size)
         
         // MARK: update annotation
-        context.coordinator.updateAnnotations(mapView: uiView, uCoordinate: tappedCoordinate , dCoordinate : locationService.lastLocation.coordinate)
+        context.coordinator.updateAnnotations(mapView: uiView, uCoordinate: locationService.lastLocation.coordinate , dCoordinate : tappedCoordinate)
         
-        // MARK: update tappedCoordinate
+        // MARK: update Route
+        if let coordinate = tappedCoordinate {
+            let userCoordinate = locationService.lastLocation.coordinate
+            
+            let request = MKDirections.Request()
+            
+            // MARK: Source Destination
+            request.source = MKMapItem(placemark: MKPlacemark(coordinate: userCoordinate))
+            request.destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
+            
+            // MARK: Transportation Type
+            if selectedTransport == 0 {
+                request.transportType = .walking
+            } else {
+                request.transportType = .automobile
+            }
+            
+            // MARK: Direction Request
+            let direction : MKDirections = MKDirections(request: request)
+            
+            direction.calculate { resp, err in
+                if let err = err {
+                    print("Error giving direction Calculation")
+                    self.error = NSError(domain: "Direction gagal di kalkulasi", code: -100)
+                }
+                
+                guard let route = resp?.routes.first else {
+                    print("route tidak ditemukan Error")
+                    self.error = NSError(domain: "Route tidak di temukan", code: -99)
+                    return
+                }
+                
+                let region : MKCoordinateRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+
+                uiView.removeOverlays(uiView.overlays)
+                uiView.addOverlay(route.polyline)
+                uiView.setRegion(region, animated: true)
+                
+                
+            }
+        }
         
     }
     
