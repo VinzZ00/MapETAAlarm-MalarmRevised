@@ -15,8 +15,8 @@ struct MapETAAlarmApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            ToDoListView()
-//                .environment(\.managedObjectContext, coreDataManager.container.viewContext)
+            TodoListView()
+                .environment(\.managedObjectContext, coreDataManager.container.viewContext)
         }
     }
 }

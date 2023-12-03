@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct listComponent: View {
+struct listCellView: View {
     
     var todoList : TodoListDTO;
     @Environment(\.colorScheme) var colorScheme

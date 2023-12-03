@@ -19,6 +19,8 @@
 		AC5F40852B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40842B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift */; };
 		AC5F40872B1D088100B38FC5 /* AddTodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40862B1D088100B38FC5 /* AddTodoList.swift */; };
 		AC5F40892B1D091500B38FC5 /* UpdateTodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40882B1D091500B38FC5 /* UpdateTodoList.swift */; };
+		AC5F408B2B1D0AB700B38FC5 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F408A2B1D0AB700B38FC5 /* TodoListView.swift */; };
+		AC5F408E2B1D0AE000B38FC5 /* TodoListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F408D2B1D0AE000B38FC5 /* TodoListViewViewModel.swift */; };
 		ACA483322B1CDBDE00B9E7D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA483312B1CDBDE00B9E7D7 /* Assets.xcassets */; };
 		ACA483352B1CDBDE00B9E7D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA483342B1CDBDE00B9E7D7 /* Preview Assets.xcassets */; };
 		ACA483452B1CDC8700B9E7D7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA4833F2B1CDC8700B9E7D7 /* CoreDataManager.swift */; };
@@ -54,6 +56,8 @@
 		AC5F40842B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoListDTO+TodoListNS.swift"; sourceTree = "<group>"; };
 		AC5F40862B1D088100B38FC5 /* AddTodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoList.swift; sourceTree = "<group>"; };
 		AC5F40882B1D091500B38FC5 /* UpdateTodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTodoList.swift; sourceTree = "<group>"; };
+		AC5F408A2B1D0AB700B38FC5 /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
+		AC5F408D2B1D0AE000B38FC5 /* TodoListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewViewModel.swift; sourceTree = "<group>"; };
 		ACA4832A2B1CDBDA00B9E7D7 /* MapETAAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapETAAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA483312B1CDBDE00B9E7D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACA483342B1CDBDE00B9E7D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 		AC5F40682B1CEFF000B38FC5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				AC5F408F2B1D0E3700B38FC5 /* Form */,
+				AC5F406C2B1CF05E00B38FC5 /* Components */,
 				AC5F40692B1CF02500B38FC5 /* TodoList */,
 			);
 			path = Features;
@@ -145,7 +151,7 @@
 		AC5F40692B1CF02500B38FC5 /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
-				AC5F406C2B1CF05E00B38FC5 /* Components */,
+				AC5F408C2B1D0ACC00B38FC5 /* ViewModel */,
 				AC5F406A2B1CF03700B38FC5 /* View */,
 				AC5F40742B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift */,
 			);
@@ -172,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				AC5F406E2B1CF0C900B38FC5 /* Components */,
+				AC5F408A2B1D0AB700B38FC5 /* TodoListView.swift */,
 			);
 			path = TodoListView;
 			sourceTree = "<group>";
@@ -201,6 +208,21 @@
 				AC5F40882B1D091500B38FC5 /* UpdateTodoList.swift */,
 			);
 			path = Usecases;
+			sourceTree = "<group>";
+		};
+		AC5F408C2B1D0ACC00B38FC5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AC5F408D2B1D0AE000B38FC5 /* TodoListViewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AC5F408F2B1D0E3700B38FC5 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Form;
 			sourceTree = "<group>";
 		};
 		ACA483212B1CDBDA00B9E7D7 = {
@@ -414,7 +436,9 @@
 				AC5F40892B1D091500B38FC5 /* UpdateTodoList.swift in Sources */,
 				ACA483492B1CDC8700B9E7D7 /* AppDelegate.swift in Sources */,
 				AC5F40752B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift in Sources */,
+				AC5F408B2B1D0AB700B38FC5 /* TodoListView.swift in Sources */,
 				AC5F40702B1CF0EB00B38FC5 /* listComponent.swift in Sources */,
+				AC5F408E2B1D0AE000B38FC5 /* TodoListViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
