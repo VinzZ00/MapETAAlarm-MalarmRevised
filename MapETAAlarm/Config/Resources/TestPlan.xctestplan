@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "4E4CE2D4-5273-4519-AA2C-279CB5D3A394",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:MapETAAlarm.xcodeproj",
+        "identifier" : "AC5F405D2B1CEFA000B38FC5",
+        "name" : "MapETAAlarmTests"
+      }
+    }
+  ],
+  "version" : 1
+}
