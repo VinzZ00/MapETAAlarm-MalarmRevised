@@ -19,8 +19,8 @@ class SearchPageViewModel : ObservableObject {
         return searchCompleterObserver
     }()
     @Published var error : NSError?
-    @Published var dLatitude : Double?
-    @Published var dlongitude : Double?
+//    @Published var dLatitude : Double?
+//    @Published var dlongitude : Double?
     @Published var locationName : String = "";
     @Published var tappedCoordinate : CLLocationCoordinate2D?
     @Published var selectedTransport : Int = 0

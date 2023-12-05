@@ -19,6 +19,9 @@ struct listCellView: View {
                 if let date = todoList.dateTime {
                     Text(date.formatted(date: .complete, time: .omitted))
                         .font(.system(size: 16, weight: .light, design: .rounded))
+                        .foregroundStyle(
+                            (colorScheme == .dark) ? .white : .black
+                        )
                 }
                 Spacer()
                 if let status = todoList.status {
@@ -34,17 +37,25 @@ struct listCellView: View {
                 if let date = todoList.dateTime {
                     Text(date.formatted(date : .omitted, time: .shortened))
                         .font(.system(size: 50, weight: .light, design: .rounded))
+                        .foregroundStyle(
+                            (colorScheme == .dark) ? .white : .black
+                        )
                 }
                 
                 Spacer()
                 
                 if let name =  todoList.name {
                     Text(name)
-                        .font(.system(size: 15, weight: .light, design: .rounded))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .font(.system(size: 20, weight: .semibold, design: .rounded))
                         .frame(width: 120)
+                        .foregroundStyle(
+                            (colorScheme == .dark) ? .white : .black
+                        )
                 }
-            }.padding(.trailing, 8)
-                .padding(.top, 5)
+            }
+            .padding(.trailing, 8)
+            .padding(.top, 5)
             Rectangle()
                 .frame(height: 0.5)
                 .foregroundColor((colorScheme == .dark

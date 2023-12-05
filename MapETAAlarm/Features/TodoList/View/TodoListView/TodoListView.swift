@@ -27,9 +27,7 @@ struct TodoListView: View {
             .navigationTitle("Todo List")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button{
-                        viewModel.showForm = true
-                    } label: {
+                    NavigationLink(destination: FormView(viewModel: viewModel.formViewModel)) {
                         Text("+")
                             .font(.system(size: 30, weight: .bold))
                     }

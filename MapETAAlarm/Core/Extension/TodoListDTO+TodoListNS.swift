@@ -10,7 +10,7 @@ import CoreData
 
 extension TodoListDTO {
     func intoNS(moc : NSManagedObjectContext) -> TodoListNS? {
-        var tdList = TodoListNS(context: moc)
+        let tdList = TodoListNS(context: moc)
         tdList.dateTime = self.dateTime
         tdList.eventDescription = self.eventDescription
         
