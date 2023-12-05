@@ -14,6 +14,7 @@ protocol AddTodoListProtocol {
 
 class AddTodoListUseCase : AddTodoListProtocol {
     var repo = LocalRepository()
+//    static let shared = AddTodoListUseCase()
     
     func call(moc : NSManagedObjectContext, todoList : TodoListDTO) async throws {
         try await repo.CoreData.saveTodoList(moc: moc, todolist: todoList)

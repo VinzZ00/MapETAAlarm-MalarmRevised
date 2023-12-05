@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0CD4D82B1E127D00F959DC /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CD4D72B1E127D00F959DC /* SearchPageView.swift */; };
+		AC0CD4DA2B1E12A600F959DC /* SearchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CD4D92B1E12A600F959DC /* SearchPageViewModel.swift */; };
+		AC0CD4DF2B1F794700F959DC /* SearchCompleterObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CD4DE2B1F794700F959DC /* SearchCompleterObserver.swift */; };
 		AC5F40562B1CECF600B38FC5 /* TodoListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40502B1CECF600B38FC5 /* TodoListDTO.swift */; };
 		AC5F40572B1CECF600B38FC5 /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40522B1CECF600B38FC5 /* LocalRepository.swift */; };
 		AC5F40592B1CECF600B38FC5 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40552B1CECF600B38FC5 /* CoreData.swift */; };
@@ -21,6 +24,8 @@
 		AC5F40892B1D091500B38FC5 /* UpdateTodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40882B1D091500B38FC5 /* UpdateTodoList.swift */; };
 		AC5F408B2B1D0AB700B38FC5 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F408A2B1D0AB700B38FC5 /* TodoListView.swift */; };
 		AC5F408E2B1D0AE000B38FC5 /* TodoListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F408D2B1D0AE000B38FC5 /* TodoListViewViewModel.swift */; };
+		AC5F40922B1DD69E00B38FC5 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40912B1DD69E00B38FC5 /* FormView.swift */; };
+		AC5F40952B1DD75300B38FC5 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40942B1DD75300B38FC5 /* FormViewModel.swift */; };
 		ACA483322B1CDBDE00B9E7D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA483312B1CDBDE00B9E7D7 /* Assets.xcassets */; };
 		ACA483352B1CDBDE00B9E7D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA483342B1CDBDE00B9E7D7 /* Preview Assets.xcassets */; };
 		ACA483452B1CDC8700B9E7D7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA4833F2B1CDC8700B9E7D7 /* CoreDataManager.swift */; };
@@ -42,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC0CD4D72B1E127D00F959DC /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
+		AC0CD4D92B1E12A600F959DC /* SearchPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewModel.swift; sourceTree = "<group>"; };
+		AC0CD4DE2B1F794700F959DC /* SearchCompleterObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleterObserver.swift; sourceTree = "<group>"; };
 		AC5F40502B1CECF600B38FC5 /* TodoListDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListDTO.swift; sourceTree = "<group>"; };
 		AC5F40522B1CECF600B38FC5 /* LocalRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
 		AC5F40552B1CECF600B38FC5 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
@@ -58,6 +66,8 @@
 		AC5F40882B1D091500B38FC5 /* UpdateTodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTodoList.swift; sourceTree = "<group>"; };
 		AC5F408A2B1D0AB700B38FC5 /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
 		AC5F408D2B1D0AE000B38FC5 /* TodoListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewViewModel.swift; sourceTree = "<group>"; };
+		AC5F40912B1DD69E00B38FC5 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		AC5F40942B1DD75300B38FC5 /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		ACA4832A2B1CDBDA00B9E7D7 /* MapETAAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapETAAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA483312B1CDBDE00B9E7D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACA483342B1CDBDE00B9E7D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -88,6 +98,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC0CD4D42B1E125900F959DC /* SearchPage */ = {
+			isa = PBXGroup;
+			children = (
+				AC0CD4D62B1E126700F959DC /* ViewModel */,
+				AC0CD4D52B1E126300F959DC /* View */,
+			);
+			path = SearchPage;
+			sourceTree = "<group>";
+		};
+		AC0CD4D52B1E126300F959DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC0CD4D72B1E127D00F959DC /* SearchPageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC0CD4D62B1E126700F959DC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AC0CD4D92B1E12A600F959DC /* SearchPageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AC0CD4DB2B1F792400F959DC /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				ACA483402B1CDC8700B9E7D7 /* CoreLocationManager.swift */,
+				AC0CD4DE2B1F794700F959DC /* SearchCompleterObserver.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		AC0CD4DC2B1F792B00F959DC /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				ACA4833F2B1CDC8700B9E7D7 /* CoreDataManager.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		AC5F404D2B1CECB900B38FC5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +193,7 @@
 		AC5F40682B1CEFF000B38FC5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				AC0CD4D42B1E125900F959DC /* SearchPage */,
 				AC5F408F2B1D0E3700B38FC5 /* Form */,
 				AC5F406C2B1CF05E00B38FC5 /* Components */,
 				AC5F40692B1CF02500B38FC5 /* TodoList */,
@@ -221,8 +274,26 @@
 		AC5F408F2B1D0E3700B38FC5 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				AC5F40932B1DD74A00B38FC5 /* ViewModel */,
+				AC5F40902B1DD65400B38FC5 /* View */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		AC5F40902B1DD65400B38FC5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC5F40912B1DD69E00B38FC5 /* FormView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC5F40932B1DD74A00B38FC5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AC5F40942B1DD75300B38FC5 /* FormViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		ACA483212B1CDBDA00B9E7D7 = {
@@ -277,8 +348,8 @@
 		ACA4833E2B1CDC8700B9E7D7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				ACA4833F2B1CDC8700B9E7D7 /* CoreDataManager.swift */,
-				ACA483402B1CDC8700B9E7D7 /* CoreLocationManager.swift */,
+				AC0CD4DC2B1F792B00F959DC /* Storage */,
+				AC0CD4DB2B1F792400F959DC /* Location */,
 				ACA483412B1CDC8700B9E7D7 /* Helper.swift */,
 			);
 			path = Utils;
@@ -427,16 +498,21 @@
 				ACA4834F2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodeld in Sources */,
 				AC5F40592B1CECF600B38FC5 /* CoreData.swift in Sources */,
 				ACA483482B1CDC8700B9E7D7 /* MapETAAlarm.swift in Sources */,
+				AC0CD4D82B1E127D00F959DC /* SearchPageView.swift in Sources */,
 				AC5F40872B1D088100B38FC5 /* AddTodoList.swift in Sources */,
 				AC5F40852B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift in Sources */,
 				AC5F40832B1D03DF00B38FC5 /* FetchTodoList.swift in Sources */,
+				AC0CD4DA2B1E12A600F959DC /* SearchPageViewModel.swift in Sources */,
 				AC5F40572B1CECF600B38FC5 /* LocalRepository.swift in Sources */,
 				AC5F40562B1CECF600B38FC5 /* TodoListDTO.swift in Sources */,
+				AC5F40922B1DD69E00B38FC5 /* FormView.swift in Sources */,
 				ACA483472B1CDC8700B9E7D7 /* Helper.swift in Sources */,
 				AC5F40892B1D091500B38FC5 /* UpdateTodoList.swift in Sources */,
+				AC0CD4DF2B1F794700F959DC /* SearchCompleterObserver.swift in Sources */,
 				ACA483492B1CDC8700B9E7D7 /* AppDelegate.swift in Sources */,
 				AC5F40752B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift in Sources */,
 				AC5F408B2B1D0AB700B38FC5 /* TodoListView.swift in Sources */,
+				AC5F40952B1DD75300B38FC5 /* FormViewModel.swift in Sources */,
 				AC5F40702B1CF0EB00B38FC5 /* listComponent.swift in Sources */,
 				AC5F408E2B1D0AE000B38FC5 /* TodoListViewViewModel.swift in Sources */,
 			);

@@ -16,10 +16,29 @@ struct TodoListView: View {
                 LazyVStack {
                     ForEach(viewModel.todolists) {
                         tdlist in
-                        listCellView(todoList: tdlist)
+                        NavigationLink(value: tdlist) {
+                            listCellView(todoList: tdlist)
+                        }
+                    }.navigationDestination(for: TodoListDTO.self) { tdlist in
+                        // TODO: Create viewModel for the formView first
                     }
                 }
-            }.onAppear {
+            }
+            .navigationTitle("Todo List")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button{
+                        viewModel.showForm = true
+                    } label: {
+                        Text("+")
+                            .font(.system(size: 30, weight: .bold))
+                    }
+                }
+            }
+            .navigationDestination(isPresented: $viewModel.showForm, destination: {
+                FormView(viewModel: viewModel.formViewModel)
+            })
+            .onAppear {
                 Task {
                     await viewModel.getTodoList(moc: moc)
                 }

@@ -8,10 +8,12 @@
 import Foundation
 import CoreData
 
-class TodoListViewViewModel : ObservableObject {
+@MainActor class TodoListViewViewModel : ObservableObject {
     @Published var todolists : [TodoListDTO] = []
+    @Published var showForm : Bool = false
     lazy var getUseCase : FetchTodoListUseCase = FetchTodoListUseCase()
     @Published var err : Error?
+    @Published var formViewModel : FormViewModel = FormViewModel()
     
     func getTodoList(moc : NSManagedObjectContext) async {
         do {

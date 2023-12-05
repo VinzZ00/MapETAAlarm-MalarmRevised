@@ -56,11 +56,11 @@ struct MapViewRepresentable : UIViewRepresentable {
     var size : CGSize
     var locationService = CoreLocationHandler.shared
     
-    @Binding var error : NSError;
+    @Binding var error : NSError?
     @Binding var selectedTransport : Int
     @Binding var tappedCoordinate : CLLocationCoordinate2D?
     @State var route : MKPolyline?;
-    
+    var canUpdate : Bool;
     
     func makeCoordinator() -> Coordinator {
         Coordinator()
