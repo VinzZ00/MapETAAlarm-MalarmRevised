@@ -193,7 +193,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D076B1EF-F50C-4CB8-A5A1-D05C99CD78BF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapETAAlarm/Core/Utils/Location/CoreLocationManager.swift"
@@ -209,7 +209,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E3E6F491-037E-4FD1-ACB3-18DAB13C3D6A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapETAAlarm/Core/Utils/Location/CoreLocationManager.swift"
@@ -241,14 +241,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2ECBCFB6-C646-4FB4-BC3E-F41E7C59F245"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapETAAlarm/Features/Form/View/FormView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -273,7 +273,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D53BBAA9-2DB7-4F9E-A819-6CBC2D9B3298"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapETAAlarm/Core/Utils/Location/CoreLocationManager.swift"
@@ -289,7 +289,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F5388E2B-FB15-46C1-B4AA-4C8B4A6573A2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapETAAlarm/Core/Utils/Location/CoreLocationManager.swift"
@@ -374,6 +374,213 @@
                   startingLineNumber = "40"
                   endingLineNumber = "40"
                   offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "502E7D9B-64F2-4508-843D-DA43AB40EE32"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "Coordinator"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "502E7D9B-64F2-4508-843D-DA43AB40EE32 - 3797cc565c8f5d04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapETAAlarm.MapViewRepresentable.Coordinator.__allocating_init() -&gt; MapETAAlarm.MapViewRepresentable.Coordinator"
+                  moduleName = "MapETAAlarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vinz/Desktop/Portofolio/MapETAAlarm/MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "502E7D9B-64F2-4508-843D-DA43AB40EE32 - a4d26e7815487ae8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapETAAlarm.MapViewRepresentable.Coordinator.init() -&gt; MapETAAlarm.MapViewRepresentable.Coordinator"
+                  moduleName = "MapETAAlarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vinz/Desktop/Portofolio/MapETAAlarm/MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "502E7D9B-64F2-4508-843D-DA43AB40EE32 - 445b7b4a6438a5d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapETAAlarm.MapViewRepresentable.Coordinator.__deallocating_deinit"
+                  moduleName = "MapETAAlarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vinz/Desktop/Portofolio/MapETAAlarm/MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37EA3512-8E00-4625-978E-E04E33915C17"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "MapViewRepresentable"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C5DE371-9787-41D0-A3A9-53D8278518EC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "updateUIView(_:context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "12896AC7-7CEB-4DA3-BC0E-8532A99701B3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "updateUIView(_:context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35CD67E6-36EA-4F82-97D0-5EA039A06261"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "updateUIView(_:context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "35CD67E6-36EA-4F82-97D0-5EA039A06261 - 21d202a2bdbfb297"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapETAAlarm.MapViewRepresentable.updateUIView(_: __C.MKMapView, context: SwiftUI.UIViewRepresentableContext&lt;MapETAAlarm.MapViewRepresentable&gt;) -&gt; ()"
+                  moduleName = "MapETAAlarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vinz/Desktop/Portofolio/MapETAAlarm/MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "1852">
+               </Location>
+               <Location
+                  uuid = "35CD67E6-36EA-4F82-97D0-5EA039A06261 - 4c58916dafb9a0a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.MKDirectionsResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MapETAAlarm.MapViewRepresentable.updateUIView(_: __C.MKMapView, context: SwiftUI.UIViewRepresentableContext&lt;MapETAAlarm.MapViewRepresentable&gt;) -&gt; ()"
+                  moduleName = "MapETAAlarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vinz/Desktop/Portofolio/MapETAAlarm/MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "1172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "190863E0-FDCF-4F74-A85F-F1852C6FF502"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "updateUIView(_:context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "190863E0-FDCF-4F74-A85F-F1852C6FF502 - 21d202a2bdbfb21b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapETAAlarm.MapViewRepresentable.updateUIView(_: __C.MKMapView, context: SwiftUI.UIViewRepresentableContext&lt;MapETAAlarm.MapViewRepresentable&gt;) -&gt; ()"
+                  moduleName = "MapETAAlarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vinz/Desktop/Portofolio/MapETAAlarm/MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "2536">
+               </Location>
+               <Location
+                  uuid = "190863E0-FDCF-4F74-A85F-F1852C6FF502 - 4c58916dafb9a02a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.MKDirectionsResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MapETAAlarm.MapViewRepresentable.updateUIView(_: __C.MKMapView, context: SwiftUI.UIViewRepresentableContext&lt;MapETAAlarm.MapViewRepresentable&gt;) -&gt; ()"
+                  moduleName = "MapETAAlarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vinz/Desktop/Portofolio/MapETAAlarm/MapETAAlarm/Features/Components/MapViewRepresentable.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "1216">
                </Location>
             </Locations>
          </BreakpointContent>

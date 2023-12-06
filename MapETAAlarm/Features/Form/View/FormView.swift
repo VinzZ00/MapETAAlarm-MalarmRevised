@@ -50,15 +50,10 @@ struct FormView: View {
                                 .multilineTextAlignment(.leading)
                         }
                         
-                        
-//                            .onTapGesture {
-//                                viewModel.searchPageViewModel.searchPage = true
-//                            }
-                        
                         if viewModel.searchPageViewModel.tappedCoordinate != nil {
                             
                             GeometryReader { prox in
-                                MapViewRepresentable(size: prox.size, error: $viewModel.error, selectedTransport: $viewModel.searchPageViewModel.selectedTransport, tappedCoordinate: $viewModel.searchPageViewModel.tappedCoordinate, canUpdate : false)
+                                MapViewRepresentable(size: prox.size, searchPageIsShown : $viewModel.searchPageViewModel.searchPage, locationName : $viewModel.searchPageViewModel.locationName, error: $viewModel.error, selectedTransport: $viewModel.searchPageViewModel.selectedTransport, tappedCoordinate: $viewModel.searchPageViewModel.tappedCoordinate, canUpdate : false)
                                     .cornerRadius(10)
                                     .shadow(radius: 2, x: 2, y: 1)
                                     .padding(.bottom, 8)

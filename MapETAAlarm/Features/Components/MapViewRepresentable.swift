@@ -9,14 +9,26 @@ import SwiftUI
 import MapKit
 
 
-
 struct MapViewRepresentable : UIViewRepresentable {
     
     
     class Coordinator : NSObject, MKMapViewDelegate{
         
+        init(_ parent : MapViewRepresentable) {
+            self.parent = parent
+        }
+        
+        var parent : MapViewRepresentable
+        
         var userAnnotation : MKPointAnnotation?
         var destinationCoordinate : MKPointAnnotation?
+        
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = .systemBlue
+            renderer.lineWidth = 5
+            return renderer
+        }
         
         func updateAnnotations(mapView : MKMapView, uCoordinate : CLLocationCoordinate2D, dCoordinate : CLLocationCoordinate2D?) {
             
@@ -49,26 +61,91 @@ struct MapViewRepresentable : UIViewRepresentable {
             
         }
         
+        @objc func handleTap(_ gesture: UITapGestureRecognizer) {
+            let mapView = gesture.view as! MKMapView
+            let tapPoint = gesture.location(in: mapView)
+            let tapCoordinate = mapView.convert(tapPoint, toCoordinateFrom: mapView)
+            parent.tappedCoordinate = tapCoordinate
+            reverseGeocodeCoordinate(CLLocationCoordinate2D(latitude: tapCoordinate.latitude, longitude: tapCoordinate.longitude))
+            
+            withAnimation {
+                if parent.canUpdate {
+                    parent.searchPageIsShown = false;
+                }
+            }
+        }
+        
+        func reverseGeocodeCoordinate(_ coordinate: CLLocationCoordinate2D) {
+            let geocoder = CLGeocoder()
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            
+            geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
+                guard let placemark = placemarks?.first, error == nil else {
+                    // Handle error
+                    print("No PlaceMark For that Coordinate.")
+                    return
+                }
+                
+                // Retrieve location name
+                if let name = placemark.name, let locality = placemark.locality {
+                    self?.parent.locationName = "\(name), \(locality)"
+                } else if let locality = placemark.locality {
+                    self?.parent.locationName = locality
+                } else {
+                    self?.parent.locationName = "Unknown"
+                }
+            }
+        }
+        
         
     }
     
     typealias UIViewType = MKMapView
     var size : CGSize
     var locationService = CoreLocationHandler.shared
-    
+    @Binding var searchPageIsShown : Bool
+    @Binding var locationName : String
     @Binding var error : NSError?
     @Binding var selectedTransport : Int
     @Binding var tappedCoordinate : CLLocationCoordinate2D?
-    @State var route : MKPolyline?;
-    var canUpdate : Bool;
+    @State var route : MKPolyline?
+    var canUpdate : Bool
     
     func makeCoordinator() -> Coordinator {
-        Coordinator()
+        Coordinator(self)
+    }
+    
+    func zoomToFit(mapView : UIViewType, coordinates: [CLLocationCoordinate2D]) {
+        var minLat: CLLocationDegrees = 90
+        var maxLat: CLLocationDegrees = -90
+        var minLon: CLLocationDegrees = 180
+        var maxLon: CLLocationDegrees = -180
+        
+        for coordinate in coordinates {
+            minLat = min(minLat, coordinate.latitude)
+            maxLat = max(maxLat, coordinate.latitude)
+            minLon = min(minLon, coordinate.longitude)
+            maxLon = max(maxLon, coordinate.longitude)
+        }
+        
+        let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.1, longitudeDelta: (maxLon - minLon) * 1.1)
+        let center = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2, longitude: (minLon + maxLon) / 2)
+        let region = MKCoordinateRegion(center: center, span: span)
+        
+        mapView.setRegion(region, animated: true)
     }
     
     func makeUIView(context: Context) -> UIViewType {
         var mkMapview = MKMapView()
+        
+        mkMapview.delegate = context.coordinator
         mkMapview.frame = CGRect(origin: CGPointZero, size: size)
+        
+        if canUpdate {
+            let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
+            mkMapview.addGestureRecognizer(tapGesture)
+        }
+        
         return mkMapview
     }
     
@@ -114,12 +191,16 @@ struct MapViewRepresentable : UIViewRepresentable {
 
                 uiView.removeOverlays(uiView.overlays)
                 uiView.addOverlay(route.polyline)
-                uiView.setRegion(region, animated: true)
+//                uiView.setRegion(region, animated: true)
                 
                 
             }
         }
-        
+        if tappedCoordinate != nil {
+            zoomToFit(mapView: uiView, coordinates: [self.locationService.lastLocation.intoCLLocation2D(), self.tappedCoordinate!])
+        } else {
+            zoomToFit(mapView: uiView, coordinates: [self.locationService.lastLocation.intoCLLocation2D()])
+        }
     }
     
     
