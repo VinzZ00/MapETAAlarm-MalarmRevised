@@ -34,6 +34,7 @@
 		ACA483482B1CDC8700B9E7D7 /* MapETAAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA483432B1CDC8700B9E7D7 /* MapETAAlarm.swift */; };
 		ACA483492B1CDC8700B9E7D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA483442B1CDC8700B9E7D7 /* AppDelegate.swift */; };
 		ACA4834F2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACA4834D2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodeld */; };
+		ACDEA1E52B20DF0100FA5462 /* CLLocation2D+Equitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEA1E42B20DF0100FA5462 /* CLLocation2D+Equitable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		ACA483442B1CDC8700B9E7D7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA4834E2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		ACA483562B1CEA6200B9E7D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACDEA1E42B20DF0100FA5462 /* CLLocation2D+Equitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation2D+Equitable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 			children = (
 				AC5F407C2B1CF60700B38FC5 /* CLLocation+CLLocation2D.swift */,
 				AC5F40842B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift */,
+				ACDEA1E42B20DF0100FA5462 /* CLLocation2D+Equitable.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				AC5F40832B1D03DF00B38FC5 /* FetchTodoList.swift in Sources */,
 				AC0CD4DA2B1E12A600F959DC /* SearchPageViewModel.swift in Sources */,
 				AC5F40572B1CECF600B38FC5 /* LocalRepository.swift in Sources */,
+				ACDEA1E52B20DF0100FA5462 /* CLLocation2D+Equitable.swift in Sources */,
 				AC5F40562B1CECF600B38FC5 /* TodoList.swift in Sources */,
 				AC5F40922B1DD69E00B38FC5 /* FormView.swift in Sources */,
 				ACA483472B1CDC8700B9E7D7 /* Helper.swift in Sources */,

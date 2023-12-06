@@ -16,6 +16,7 @@ struct SearchPageView: View {
     
     @State var showMap : Bool = false;
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack{
@@ -35,33 +36,43 @@ struct SearchPageView: View {
                         viewModel.searchCompleterObserver.completer.queryFragment = value
                     })
                 if viewModel.searchCompleterObserver.completions.isEmpty {
-                    Button{
-                        withAnimation {
-                            showMap = true
-                        }
-                    } label: {
-                        HStack{
-                            Spacer()
-                            NavigationLink(destination: {
-                                return GeometryReader { prox in
-                                    GeometryReader(content: { prox in
-                                        MapViewRepresentable(size: prox.size, searchPageIsShown : $viewModel.searchPage, locationName: $viewModel.locationName, error: $viewModel.error, selectedTransport: $viewModel.selectedTransport, tappedCoordinate: $viewModel.tappedCoordinate, canUpdate: true)
-                                            .navigationTitle("Map")
-                                            .navigationBarTitleDisplayMode(.inline)
-                                    })
+                    HStack{
+                        Spacer()
+                        NavigationLink(destination: {
+                            return GeometryReader { prox in
+                                GeometryReader { prox in
+                                    MapViewRepresentable(size: prox.size, searchPageIsShown : $viewModel.searchPage, locationName: $viewModel.locationName, error: $viewModel.error, selectedTransport: $viewModel.selectedTransport, tappedCoordinate: $viewModel.tappedCoordinate, canUpdate: true)
+                                        .navigationTitle("Map")
+                                        .navigationBarTitleDisplayMode(.inline)
                                 }
-                            }()) {
-                                Text("Find It on map?")
-                                    .font(.system(size: 20))
-                                    .foregroundColor((colorScheme == .dark) ? .gray.opacity(0.6) : .black.opacity(0.6))
-                                    .padding()
                             }
-                            
-                            Spacer()
+                        }()
+                            .onAppear{
+                                viewModel.lastCoordinate = viewModel.tappedCoordinate
+                            }
+                            .onDisappear{
+                                if let lCoord = viewModel.lastCoordinate {
+                                    if lCoord != viewModel.tappedCoordinate {
+                                        dismiss()
+                                    }
+                                } else {
+                                    if viewModel.tappedCoordinate != nil {
+                                        dismiss()
+                                    }
+                                }
+                            }
+                        ) {
+                            Text("Find It on map?")
+                                .font(.system(size: 20))
+                                .foregroundColor((colorScheme == .dark) ? .gray.opacity(0.6) : .black.opacity(0.6))
+                                .padding()
                         }
-                        .background((colorScheme == .dark) ? .white.opacity(0.2) : .gray.opacity(0.2))
-                        .cornerRadius(20)
-                    }.padding()
+                        Spacer()
+                    }
+                    
+                    .background((colorScheme == .dark) ? .white.opacity(0.2) : .gray.opacity(0.2))
+                    .cornerRadius(20)
+                    .padding(.horizontal)
                 }
                 List(viewModel.searchCompleterObserver.completions, id: \.self) { completion in
                     Text(completion.title)

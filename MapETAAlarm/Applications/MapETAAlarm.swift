@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct MapETAAlarmApp: App {
-//    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     @StateObject private var coreDataManager : CoreDataManager = CoreDataManager();
     

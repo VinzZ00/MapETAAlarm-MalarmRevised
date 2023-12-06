@@ -19,6 +19,7 @@ class FormViewModel : ObservableObject {
     @Published var selectedTime : Date = Date();
     @Published var locationManager = CoreLocationHandler.shared
     
+    
     func saveToCoreData(todolist : TodoList, moc : NSManagedObjectContext) async {
         do {
             try await saveTodoList.call(moc: moc, todoList: todolist)
@@ -52,7 +53,6 @@ class FormViewModel : ObservableObject {
         content.title = title
         content.body = description
         content.sound = .defaultCritical
-        
         
         // Create date components for the alarm time
         var dateComponents = DateComponents()

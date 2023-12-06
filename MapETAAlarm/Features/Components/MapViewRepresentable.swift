@@ -33,13 +33,15 @@ struct MapViewRepresentable : UIViewRepresentable {
         func updateAnnotations(mapView : MKMapView, uCoordinate : CLLocationCoordinate2D, dCoordinate : CLLocationCoordinate2D?) {
             
             // MARK: User Annotation
-            if let userAnnotation =  userAnnotation {
-                userAnnotation.coordinate = uCoordinate
-            } else {
-                let newUserAnnotation  = MKPointAnnotation()
-                newUserAnnotation.coordinate = uCoordinate
-                mapView.addAnnotation(newUserAnnotation)
-                userAnnotation = newUserAnnotation;
+            if !parent.canUpdate {
+                if let userAnnotation =  userAnnotation {
+                    userAnnotation.coordinate = uCoordinate
+                } else {
+                    let newUserAnnotation  = MKPointAnnotation()
+                    newUserAnnotation.coordinate = uCoordinate
+                    mapView.addAnnotation(newUserAnnotation)
+                    userAnnotation = newUserAnnotation;
+                }
             }
             
             // MARK: Destination Annotation
@@ -70,7 +72,7 @@ struct MapViewRepresentable : UIViewRepresentable {
             
             withAnimation {
                 if parent.canUpdate {
-                    parent.searchPageIsShown = false;
+                    parent.dismiss()
                 }
             }
         }
@@ -109,6 +111,8 @@ struct MapViewRepresentable : UIViewRepresentable {
     @Binding var selectedTransport : Int
     @Binding var tappedCoordinate : CLLocationCoordinate2D?
     @State var route : MKPolyline?
+    @Environment(\.dismiss) private var dismiss
+    
     var canUpdate : Bool
     
     func makeCoordinator() -> Coordinator {
@@ -128,7 +132,7 @@ struct MapViewRepresentable : UIViewRepresentable {
             maxLon = max(maxLon, coordinate.longitude)
         }
         
-        let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.1, longitudeDelta: (maxLon - minLon) * 1.1)
+        let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.4, longitudeDelta: (maxLon - minLon) * 1.4)
         let center = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2, longitude: (minLon + maxLon) / 2)
         let region = MKCoordinateRegion(center: center, span: span)
         
@@ -136,12 +140,14 @@ struct MapViewRepresentable : UIViewRepresentable {
     }
     
     func makeUIView(context: Context) -> UIViewType {
-        var mkMapview = MKMapView()
+        let mkMapview = MKMapView()
         
         mkMapview.delegate = context.coordinator
         mkMapview.frame = CGRect(origin: CGPointZero, size: size)
         
         if canUpdate {
+            mkMapview.userTrackingMode = .followWithHeading
+            
             let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
             mkMapview.addGestureRecognizer(tapGesture)
         }
