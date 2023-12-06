@@ -9,7 +9,7 @@ import SwiftUI
 
 struct listCellView: View {
     
-    var todoList : TodoListDTO;
+    var todoList : TodoList;
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {

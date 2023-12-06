@@ -16,7 +16,7 @@ class FetchTodoListUseCase : FetchTodoListProtocol {
     let repository : LocalRepository = LocalRepository()
 //    static let shared = FetchTodoListUseCase()
     
-    func call(moc : NSManagedObjectContext) async throws -> [TodoListDTO]{
+    func call(moc : NSManagedObjectContext) async throws -> [TodoList]{
         switch await repository.CoreData.GetTodoList(moc: moc) {
         case .success(let data):
             return data.map{$0.intoDTO()}

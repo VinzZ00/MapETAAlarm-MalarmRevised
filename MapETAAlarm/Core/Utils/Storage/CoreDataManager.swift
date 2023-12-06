@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class CoreDataManager : ObservableObject {
-    
+
     lazy var container : NSPersistentContainer = {
         var container = NSPersistentContainer(name: "CoreDataModel")
         container.loadPersistentStores { _, err in

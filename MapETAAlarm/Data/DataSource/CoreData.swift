@@ -12,6 +12,14 @@ protocol CoreDataDataSourceProtocol {
     func GetTodoList(moc : NSManagedObjectContext) async -> Result<[TodoListNS], Error> 
 }
 
+var x : CoreDataDataSourceProtocol = CoreDataDataSource();
+
+func aaa() {
+    if x is CoreDataDataSource {
+        (x as! CoreDataDataSource)
+    }
+}
+
 class CoreDataDataSource : CoreDataDataSourceProtocol {
     
     func GetTodoList(moc : NSManagedObjectContext) async -> Result<[TodoListNS], Error> {
@@ -29,12 +37,12 @@ class CoreDataDataSource : CoreDataDataSourceProtocol {
         }
     }
     
-    func saveTodoList(moc : NSManagedObjectContext, todolist : TodoListDTO) async throws {
+    func saveTodoList(moc : NSManagedObjectContext, todolist : TodoList) async throws {
         let nsTodolist = todolist.intoNS(moc: moc);
         try moc.save()
     }
     
-    func updateTodoList(moc : NSManagedObjectContext, todolist : TodoListDTO) async throws {
+    func updateTodoList(moc : NSManagedObjectContext, todolist : TodoList) async throws {
         
         var datas : [TodoListNS]?
         

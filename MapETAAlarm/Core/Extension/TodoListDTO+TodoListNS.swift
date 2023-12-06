@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-extension TodoListDTO {
+extension TodoList {
     func intoNS(moc : NSManagedObjectContext) -> TodoListNS? {
         let tdList = TodoListNS(context: moc)
         tdList.dateTime = self.dateTime
@@ -42,8 +42,8 @@ extension TodoListDTO {
 }
 
 extension TodoListNS {
-    func intoDTO() -> TodoListDTO {
-        return TodoListDTO(dateTime: self.dateTime!,
+    func intoDTO() -> TodoList {
+        return TodoList(dateTime: self.dateTime!,
                            eventDescription: self.eventDescription!,
                            id: self.uuid!,
                            uLatitude: self.uLatitude,

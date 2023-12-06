@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 @MainActor class TodoListViewViewModel : ObservableObject {
-    @Published var todolists : [TodoListDTO] = []
+    @Published var todolists : [TodoList] = []
     @Published var showForm : Bool = false
     lazy var getUseCase : FetchTodoListUseCase = FetchTodoListUseCase()
     @Published var err : Error?

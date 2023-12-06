@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-struct TodoListDTO : Identifiable, Hashable {
+struct TodoList : Identifiable, Hashable {
     
     var dateTime : Date?
     var eventDescription : String?

@@ -19,7 +19,7 @@ class FormViewModel : ObservableObject {
     @Published var selectedTime : Date = Date();
     @Published var locationManager = CoreLocationHandler.shared
     
-    func saveToCoreData(todolist : TodoListDTO, moc : NSManagedObjectContext) async {
+    func saveToCoreData(todolist : TodoList, moc : NSManagedObjectContext) async {
         do {
             try await saveTodoList.call(moc: moc, todoList: todolist)
         } catch {

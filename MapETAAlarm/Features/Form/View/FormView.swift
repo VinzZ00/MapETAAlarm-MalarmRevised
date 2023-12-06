@@ -103,7 +103,7 @@ struct FormView: View {
                             fatalError("Tapped Coordinate is not available")
                         }
                         
-                        let todolist : TodoListDTO = TodoListDTO(dateTime: viewModel.selectedTime, eventDescription: viewModel.eventDescription, uLatitude: viewModel.locationManager.lastLocation.coordinate.latitude, uLongitude: viewModel.locationManager.lastLocation.coordinate.longitude, dLatitude: tappedCoordinate.latitude, dLongitude: tappedCoordinate.longitude, name: viewModel.eventName, status: "Incomplete", transportationType: (viewModel.searchPageViewModel.selectedTransport == 0) ? "Walking" : "Car")
+                        let todolist : TodoList = TodoList(dateTime: viewModel.selectedTime, eventDescription: viewModel.eventDescription, uLatitude: viewModel.locationManager.lastLocation.coordinate.latitude, uLongitude: viewModel.locationManager.lastLocation.coordinate.longitude, dLatitude: tappedCoordinate.latitude, dLongitude: tappedCoordinate.longitude, name: viewModel.eventName, status: "Incomplete", transportationType: (viewModel.searchPageViewModel.selectedTransport == 0) ? "Walking" : "Car")
                         
                         
                         

@@ -10,7 +10,7 @@
 		AC0CD4D82B1E127D00F959DC /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CD4D72B1E127D00F959DC /* SearchPageView.swift */; };
 		AC0CD4DA2B1E12A600F959DC /* SearchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CD4D92B1E12A600F959DC /* SearchPageViewModel.swift */; };
 		AC0CD4DF2B1F794700F959DC /* SearchCompleterObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CD4DE2B1F794700F959DC /* SearchCompleterObserver.swift */; };
-		AC5F40562B1CECF600B38FC5 /* TodoListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40502B1CECF600B38FC5 /* TodoListDTO.swift */; };
+		AC5F40562B1CECF600B38FC5 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40502B1CECF600B38FC5 /* TodoList.swift */; };
 		AC5F40572B1CECF600B38FC5 /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40522B1CECF600B38FC5 /* LocalRepository.swift */; };
 		AC5F40592B1CECF600B38FC5 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40552B1CECF600B38FC5 /* CoreData.swift */; };
 		AC5F40612B1CEFA000B38FC5 /* MapETAAlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40602B1CEFA000B38FC5 /* MapETAAlarmTests.swift */; };
@@ -50,7 +50,7 @@
 		AC0CD4D72B1E127D00F959DC /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
 		AC0CD4D92B1E12A600F959DC /* SearchPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewModel.swift; sourceTree = "<group>"; };
 		AC0CD4DE2B1F794700F959DC /* SearchCompleterObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleterObserver.swift; sourceTree = "<group>"; };
-		AC5F40502B1CECF600B38FC5 /* TodoListDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListDTO.swift; sourceTree = "<group>"; };
+		AC5F40502B1CECF600B38FC5 /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		AC5F40522B1CECF600B38FC5 /* LocalRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
 		AC5F40552B1CECF600B38FC5 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		AC5F405E2B1CEFA000B38FC5 /* MapETAAlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapETAAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				AC5F40532B1CECF600B38FC5 /* DataSource */,
-				AC5F404F2B1CECF600B38FC5 /* DataTransferObject */,
 				AC5F40512B1CECF600B38FC5 /* Repository */,
 			);
 			path = Data;
@@ -153,17 +152,18 @@
 		AC5F404E2B1CECBD00B38FC5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				AC5F404F2B1CECF600B38FC5 /* Entity */,
 				AC5F40812B1D03CE00B38FC5 /* Usecases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		AC5F404F2B1CECF600B38FC5 /* DataTransferObject */ = {
+		AC5F404F2B1CECF600B38FC5 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				AC5F40502B1CECF600B38FC5 /* TodoListDTO.swift */,
+				AC5F40502B1CECF600B38FC5 /* TodoList.swift */,
 			);
-			path = DataTransferObject;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		AC5F40512B1CECF600B38FC5 /* Repository */ = {
@@ -193,9 +193,9 @@
 		AC5F40682B1CEFF000B38FC5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				AC5F406C2B1CF05E00B38FC5 /* Components */,
 				AC0CD4D42B1E125900F959DC /* SearchPage */,
 				AC5F408F2B1D0E3700B38FC5 /* Form */,
-				AC5F406C2B1CF05E00B38FC5 /* Components */,
 				AC5F40692B1CF02500B38FC5 /* TodoList */,
 			);
 			path = Features;
@@ -504,7 +504,7 @@
 				AC5F40832B1D03DF00B38FC5 /* FetchTodoList.swift in Sources */,
 				AC0CD4DA2B1E12A600F959DC /* SearchPageViewModel.swift in Sources */,
 				AC5F40572B1CECF600B38FC5 /* LocalRepository.swift in Sources */,
-				AC5F40562B1CECF600B38FC5 /* TodoListDTO.swift in Sources */,
+				AC5F40562B1CECF600B38FC5 /* TodoList.swift in Sources */,
 				AC5F40922B1DD69E00B38FC5 /* FormView.swift in Sources */,
 				ACA483472B1CDC8700B9E7D7 /* Helper.swift in Sources */,
 				AC5F40892B1D091500B38FC5 /* UpdateTodoList.swift in Sources */,

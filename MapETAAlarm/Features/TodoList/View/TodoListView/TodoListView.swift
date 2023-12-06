@@ -19,7 +19,7 @@ struct TodoListView: View {
                         NavigationLink(value: tdlist) {
                             listCellView(todoList: tdlist)
                         }
-                    }.navigationDestination(for: TodoListDTO.self) { tdlist in
+                    }.navigationDestination(for: TodoList.self) { tdlist in
                         // TODO: Create viewModel for the formView first
                     }
                 }
