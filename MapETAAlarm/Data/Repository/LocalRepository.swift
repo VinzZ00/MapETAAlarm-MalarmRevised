@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import os
 
 class LocalRepository {
-    let logger : Logger = Logger(subsystem: "com.AA.ETAMapAlarm", category: "MapKitServerRepository")
+    
+    // Assemble All the data of local (run without network)
     let CoreData = CoreDataDataSource()
 }

@@ -9,15 +9,11 @@ import Foundation
 import CoreData
 
 protocol CoreDataDataSourceProtocol {
-    func GetTodoList(moc : NSManagedObjectContext) async -> Result<[TodoListNS], Error> 
-}
-
-var x : CoreDataDataSourceProtocol = CoreDataDataSource();
-
-func aaa() {
-    if x is CoreDataDataSource {
-        (x as! CoreDataDataSource)
-    }
+    func GetTodoList(moc : NSManagedObjectContext) async -> Result<[TodoListNS], Error>
+    
+    func saveTodoList(moc : NSManagedObjectContext, todolist : TodoList) async throws
+    
+    func updateTodoList(moc : NSManagedObjectContext, todolist : TodoList) async throws
 }
 
 class CoreDataDataSource : CoreDataDataSourceProtocol {
@@ -38,8 +34,12 @@ class CoreDataDataSource : CoreDataDataSourceProtocol {
     }
     
     func saveTodoList(moc : NSManagedObjectContext, todolist : TodoList) async throws {
-        let nsTodolist = todolist.intoNS(moc: moc);
-        try moc.save()
+        guard let nsTodolist = todolist.intoNS(moc: moc) else {
+            fatalError("todo list can't be converted into NSObject")
+        }
+        
+        try nsTodolist.managedObjectContext?.save()
+        
     }
     
     func updateTodoList(moc : NSManagedObjectContext, todolist : TodoList) async throws {
@@ -53,7 +53,7 @@ class CoreDataDataSource : CoreDataDataSourceProtocol {
             throw failure
         }
         
-        var data = datas?.first(where: { tdls in
+        let data = datas?.first(where: { tdls in
             tdls.uuid == todolist.id
         })
         
@@ -66,6 +66,10 @@ class CoreDataDataSource : CoreDataDataSourceProtocol {
         data?.name = todolist.name
         data?.status = todolist.status
         data?.transportationType = todolist.transportationType
+        
+        if let newRec = data {
+            try newRec.managedObjectContext?.save()
+        }
         
     }
     

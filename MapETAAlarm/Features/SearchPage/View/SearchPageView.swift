@@ -41,7 +41,7 @@ struct SearchPageView: View {
                         NavigationLink(destination: {
                             return GeometryReader { prox in
                                 GeometryReader { prox in
-                                    MapViewRepresentable(size: prox.size, searchPageIsShown : $viewModel.searchPage, locationName: $viewModel.locationName, error: $viewModel.error, selectedTransport: $viewModel.selectedTransport, tappedCoordinate: $viewModel.tappedCoordinate, canUpdate: true)
+                                    MapViewRepresentable(size: prox.size, locationName: $viewModel.locationName, error: $viewModel.error, selectedTransport: $viewModel.selectedTransport, tappedCoordinate: $viewModel.tappedCoordinate, canUpdate: true)
                                         .navigationTitle("Map")
                                         .navigationBarTitleDisplayMode(.inline)
                                 }
@@ -103,9 +103,8 @@ struct SearchPageView: View {
                                     print(coordinate)
                                 }
                             }
-                            withAnimation {
-                                viewModel.searchPage = false;
-                            }
+                            
+                            dismiss()
                         }
                 }
                 
@@ -113,13 +112,6 @@ struct SearchPageView: View {
                 
             }
             .navigationTitle("Search Page")
-//            .navigationDestination(isPresented: $showMap) {
-//                GeometryReader(content: { prox in
-//                    MapViewRepresentable(size: prox.size, error: $viewModel.error, selectedTransport: $viewModel.selectedTransport, tappedCoordinate: $viewModel.tappedCoordinate, canUpdate: true)
-//                        .navigationTitle("Map")
-//                        .navigationBarTitleDisplayMode(.inline)
-//                })
-//            }
             .padding(.vertical)
         }
     }

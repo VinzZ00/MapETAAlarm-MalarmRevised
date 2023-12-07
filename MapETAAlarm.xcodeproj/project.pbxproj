@@ -15,7 +15,6 @@
 		AC5F40592B1CECF600B38FC5 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40552B1CECF600B38FC5 /* CoreData.swift */; };
 		AC5F40612B1CEFA000B38FC5 /* MapETAAlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40602B1CEFA000B38FC5 /* MapETAAlarmTests.swift */; };
 		AC5F40702B1CF0EB00B38FC5 /* listComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F406F2B1CF0EB00B38FC5 /* listComponent.swift */; };
-		AC5F40752B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40742B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift */; };
 		AC5F40772B1CF11E00B38FC5 /* MapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40762B1CF11E00B38FC5 /* MapViewRepresentable.swift */; };
 		AC5F407D2B1CF60700B38FC5 /* CLLocation+CLLocation2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F407C2B1CF60700B38FC5 /* CLLocation+CLLocation2D.swift */; };
 		AC5F40832B1D03DF00B38FC5 /* FetchTodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40822B1D03DF00B38FC5 /* FetchTodoList.swift */; };
@@ -30,7 +29,6 @@
 		ACA483352B1CDBDE00B9E7D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA483342B1CDBDE00B9E7D7 /* Preview Assets.xcassets */; };
 		ACA483452B1CDC8700B9E7D7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA4833F2B1CDC8700B9E7D7 /* CoreDataManager.swift */; };
 		ACA483462B1CDC8700B9E7D7 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA483402B1CDC8700B9E7D7 /* CoreLocationManager.swift */; };
-		ACA483472B1CDC8700B9E7D7 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA483412B1CDC8700B9E7D7 /* Helper.swift */; };
 		ACA483482B1CDC8700B9E7D7 /* MapETAAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA483432B1CDC8700B9E7D7 /* MapETAAlarm.swift */; };
 		ACA483492B1CDC8700B9E7D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA483442B1CDC8700B9E7D7 /* AppDelegate.swift */; };
 		ACA4834F2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACA4834D2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodeld */; };
@@ -58,7 +56,6 @@
 		AC5F40602B1CEFA000B38FC5 /* MapETAAlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapETAAlarmTests.swift; sourceTree = "<group>"; };
 		AC5F40672B1CEFAF00B38FC5 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		AC5F406F2B1CF0EB00B38FC5 /* listComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listComponent.swift; sourceTree = "<group>"; };
-		AC5F40742B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitRepresentableUIComponent.swift; sourceTree = "<group>"; };
 		AC5F40762B1CF11E00B38FC5 /* MapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewRepresentable.swift; sourceTree = "<group>"; };
 		AC5F407C2B1CF60700B38FC5 /* CLLocation+CLLocation2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+CLLocation2D.swift"; sourceTree = "<group>"; };
 		AC5F40822B1D03DF00B38FC5 /* FetchTodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTodoList.swift; sourceTree = "<group>"; };
@@ -74,7 +71,6 @@
 		ACA483342B1CDBDE00B9E7D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ACA4833F2B1CDC8700B9E7D7 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		ACA483402B1CDC8700B9E7D7 /* CoreLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
-		ACA483412B1CDC8700B9E7D7 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		ACA483432B1CDC8700B9E7D7 /* MapETAAlarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapETAAlarm.swift; sourceTree = "<group>"; };
 		ACA483442B1CDC8700B9E7D7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA4834E2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -208,7 +204,6 @@
 			children = (
 				AC5F408C2B1D0ACC00B38FC5 /* ViewModel */,
 				AC5F406A2B1CF03700B38FC5 /* View */,
-				AC5F40742B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -353,7 +348,6 @@
 			children = (
 				AC0CD4DC2B1F792B00F959DC /* Storage */,
 				AC0CD4DB2B1F792400F959DC /* Location */,
-				ACA483412B1CDC8700B9E7D7 /* Helper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -510,11 +504,9 @@
 				ACDEA1E52B20DF0100FA5462 /* CLLocation2D+Equitable.swift in Sources */,
 				AC5F40562B1CECF600B38FC5 /* TodoList.swift in Sources */,
 				AC5F40922B1DD69E00B38FC5 /* FormView.swift in Sources */,
-				ACA483472B1CDC8700B9E7D7 /* Helper.swift in Sources */,
 				AC5F40892B1D091500B38FC5 /* UpdateTodoList.swift in Sources */,
 				AC0CD4DF2B1F794700F959DC /* SearchCompleterObserver.swift in Sources */,
 				ACA483492B1CDC8700B9E7D7 /* AppDelegate.swift in Sources */,
-				AC5F40752B1CF0FE00B38FC5 /* MapKitRepresentableUIComponent.swift in Sources */,
 				AC5F408B2B1D0AB700B38FC5 /* TodoListView.swift in Sources */,
 				AC5F40952B1DD75300B38FC5 /* FormViewModel.swift in Sources */,
 				AC5F40702B1CF0EB00B38FC5 /* listComponent.swift in Sources */,

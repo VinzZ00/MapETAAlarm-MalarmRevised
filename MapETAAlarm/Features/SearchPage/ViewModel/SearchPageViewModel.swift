@@ -25,6 +25,5 @@ class SearchPageViewModel : ObservableObject {
     @Published var locationName : String = "";
     @Published var tappedCoordinate : CLLocationCoordinate2D?
     @Published var selectedTransport : Int = 0
-    @Published var searchPage : Bool = false
     @Published var locRegion : MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0))
 }

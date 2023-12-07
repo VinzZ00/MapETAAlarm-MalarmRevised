@@ -105,7 +105,7 @@ struct MapViewRepresentable : UIViewRepresentable {
     typealias UIViewType = MKMapView
     var size : CGSize
     var locationService = CoreLocationHandler.shared
-    @Binding var searchPageIsShown : Bool
+
     @Binding var locationName : String
     @Binding var error : NSError?
     @Binding var selectedTransport : Int
@@ -182,7 +182,7 @@ struct MapViewRepresentable : UIViewRepresentable {
             let direction : MKDirections = MKDirections(request: request)
             
             direction.calculate { resp, err in
-                if let err = err {
+                if err != nil {
                     print("Error giving direction Calculation")
                     self.error = NSError(domain: "Direction gagal di kalkulasi", code: -100)
                 }
@@ -197,7 +197,7 @@ struct MapViewRepresentable : UIViewRepresentable {
 
                 uiView.removeOverlays(uiView.overlays)
                 uiView.addOverlay(route.polyline)
-//                uiView.setRegion(region, animated: true)
+                uiView.setRegion(region, animated: true)
                 
                 
             }

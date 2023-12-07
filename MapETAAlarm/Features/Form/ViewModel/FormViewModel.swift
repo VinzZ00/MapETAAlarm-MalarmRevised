@@ -9,6 +9,8 @@ import Foundation
 import MapKit
 import CoreData
 
+
+
 class FormViewModel : ObservableObject {
     lazy var saveTodoList = AddTodoListUseCase()
     
@@ -65,7 +67,7 @@ class FormViewModel : ObservableObject {
         // Create notification trigger with calendar-based trigger
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         
-        let identifier : String = "\(coordinate.latitude),\(coordinate.longitude)"
+        let identifier : String = UUID().uuidString
         
         // Create a notification request
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
@@ -76,6 +78,17 @@ class FormViewModel : ObservableObject {
                 print("Error scheduling notification: \(error)")
             } else {
                 print("Notification scheduled successfully")
+            }
+        }
+        
+        let debugNotif = UNUserNotificationCenter.getPendingNotificationRequests(UNUserNotificationCenter.current())
+        
+        debugNotif{
+            nr in
+            print("nr count : \(nr.count)")
+            nr.forEach { n in
+                print("n id : \(n.identifier)")
+                print("n trigger : \(n.trigger.debugDescription)")
             }
         }
     }

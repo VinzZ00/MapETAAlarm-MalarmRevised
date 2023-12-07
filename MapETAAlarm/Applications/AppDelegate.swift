@@ -28,17 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//        // Handle the notification presentation as needed
-//        // For example, show an alert when the notification is triggered
-//        showAlertWithAlarmAction()
-//        
-//        // Play sound and show alert as default
-//        completionHandler([.alert, .sound])
-//        
-//        // adding haptic feedback
-//        provideHapticFeedback()
-//    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        // Trigger Haptic Feedback
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.warning)
+        
+        // Notification Completion handler, adress what will be shown.
+        completionHandler( [.badge, .banner, .sound])
+        
+    }
     
     
     
