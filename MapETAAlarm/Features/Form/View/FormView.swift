@@ -54,7 +54,7 @@ struct FormView: View {
                             if viewModel.searchPageViewModel.tappedCoordinate != nil {
                             
                             GeometryReader { prox in
-                                MapViewRepresentable(size: prox.size, locationName : $viewModel.searchPageViewModel.locationName, error: $viewModel.error, selectedTransport: $viewModel.searchPageViewModel.selectedTransport, tappedCoordinate: $viewModel.searchPageViewModel.tappedCoordinate, canUpdate : false)
+                                MapViewRepresentable(size: prox.size, userCoordinate: viewModel.locationService.lastLocation.coordinate, locationName : $viewModel.searchPageViewModel.locationName, error: $viewModel.error, selectedTransport: $viewModel.searchPageViewModel.selectedTransport, tappedCoordinate: $viewModel.searchPageViewModel.tappedCoordinate, canUpdate : false)
                                     .cornerRadius(10)
                                     .shadow(radius: 2, x: 2, y: 1)
                                     .padding(.bottom, 8)
@@ -103,9 +103,9 @@ struct FormView: View {
                             fatalError("Tapped Coordinate is not available")
                         }
                         
-                        let todolist : TodoList = TodoList(dateTime: viewModel.selectedTime, eventDescription: viewModel.eventDescription, uLatitude: viewModel.locationManager.lastLocation.coordinate.latitude, uLongitude: viewModel.locationManager.lastLocation.coordinate.longitude, dLatitude: tappedCoordinate.latitude, dLongitude: tappedCoordinate.longitude, name: viewModel.eventName, status: "Incomplete", transportationType: (viewModel.searchPageViewModel.selectedTransport == .Walking) ? "Walking" : "Auto Mobile")
+                        let todolist : TodoList = TodoList(dateTime: viewModel.selectedTime, eventDescription: viewModel.eventDescription, uLatitude: viewModel.locationService.lastLocation.coordinate.latitude, uLongitude: viewModel.locationService.lastLocation.coordinate.longitude, dLatitude: tappedCoordinate.latitude, dLongitude: tappedCoordinate.longitude, name: viewModel.eventName, status: "Incomplete", transportationType: (viewModel.searchPageViewModel.selectedTransport == .Walking) ? "Walking" : "Auto Mobile")
                         
-                        viewModel.timeEstimationCalculation.getETA(source: viewModel.locationManager.lastLocation.coordinate, destination: viewModel.searchPageViewModel.tappedCoordinate!, transporationType: viewModel.searchPageViewModel.selectedTransport) {
+                        viewModel.timeEstimationCalculation.getETA(source: viewModel.locationService.lastLocation.coordinate, destination: viewModel.searchPageViewModel.tappedCoordinate!, transporationType: viewModel.searchPageViewModel.selectedTransport) {
                             response, err in
                             if let error  = err {
                                 print("Error calculate ETA, with Description : \(error.localizedDescription)")
@@ -145,7 +145,7 @@ struct FormView: View {
 //            }
             .padding()
             .onAppear {
-                viewModel.locationManager.startLocationUpdates()
+                viewModel.locationService.startLocationUpdates()
             }
         }
     }

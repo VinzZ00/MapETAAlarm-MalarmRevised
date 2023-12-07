@@ -13,8 +13,9 @@ struct MapViewRepresentable : UIViewRepresentable {
     
     typealias UIViewType = MKMapView
     var size : CGSize
-    var locationService = LocationManager.shared
+//    var locationService = LocationManager.shared
     
+    var userCoordinate : CLLocationCoordinate2D
     @Binding var locationName : String
     @Binding var error : NSError?
     @Binding var selectedTransport : TransportationType
@@ -44,12 +45,12 @@ struct MapViewRepresentable : UIViewRepresentable {
         uiView.frame = CGRect(origin: CGPointZero, size: size)
         
         // MARK: update annotation
-        context.coordinator.updateAnnotations(mapView: uiView, uCoordinate: locationService.lastLocation.coordinate , dCoordinate : tappedCoordinate)
+        context.coordinator.updateAnnotations(mapView: uiView, uCoordinate: userCoordinate , dCoordinate : tappedCoordinate)
         
         // MARK: update Route
         if let coordinate = tappedCoordinate {
-            locationService.startLocationUpdates()
-            let userCoordinate = locationService.lastLocation.coordinate
+//            locationService.startLocationUpdates()
+            let userCoordinate = userCoordinate
             
             let request = MKDirections.Request()
             
@@ -89,9 +90,9 @@ struct MapViewRepresentable : UIViewRepresentable {
             }
         }
         if tappedCoordinate != nil {
-            zoomToFit(mapView: uiView, coordinates: [self.locationService.lastLocation.intoCLLocation2D(), self.tappedCoordinate!])
+            zoomToFit(mapView: uiView, coordinates: [userCoordinate, self.tappedCoordinate!])
         } else {
-            zoomToFit(mapView: uiView, coordinates: [self.locationService.lastLocation.intoCLLocation2D()])
+            zoomToFit(mapView: uiView, coordinates: [userCoordinate])
         }
     }
     

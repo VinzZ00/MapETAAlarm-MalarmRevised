@@ -18,7 +18,10 @@ class SearchPageViewModel : ObservableObject {
         
         return searchCompleterObserver
     }()
+    
     var lastCoordinate : CLLocationCoordinate2D?
+    
+    @Published var locationService = LocationManager.shared
     @Published var error : NSError?
 //    @Published var dLatitude : Double?
 //    @Published var dlongitude : Double?

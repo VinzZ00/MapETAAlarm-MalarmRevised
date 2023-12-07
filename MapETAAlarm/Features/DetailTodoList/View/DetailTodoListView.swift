@@ -28,14 +28,15 @@ struct DetailTodoList: View {
                     }.padding(.bottom, 8)
                     
                     DatePicker(
-                        "Select Time",
+                        "Selected Time",
                         selection: .constant(todoList.dateTime!),
                         displayedComponents: [.date, .hourAndMinute]
                     )
+                    .disabled(true)
                     .padding(.bottom, 8)
                     
                     GeometryReader { prox in
-                        MapViewRepresentable(size: prox.size, locationName: .constant(""), error: $viewModel.MapKitError, selectedTransport: .constant(TransportationType(rawValue: todoList.transportationType!)!), tappedCoordinate: .constant(CLLocationCoordinate2D(latitude: todoList.dLatitude!, longitude: todoList.dLongitude!)), canUpdate: false)
+                        MapViewRepresentable(size: prox.size, userCoordinate: CLLocationCoordinate2D(latitude: todoList.uLatitude!, longitude: todoList.uLongitude!), locationName: .constant(""), error: $viewModel.MapKitError, selectedTransport: .constant(TransportationType(rawValue: todoList.transportationType!)!), tappedCoordinate: .constant(CLLocationCoordinate2D(latitude: todoList.dLatitude!, longitude: todoList.dLongitude!)), canUpdate: false)
                             .cornerRadius(10)
                             .shadow(radius: 2, x: 2, y: 1)
                             .padding(.bottom, 8)
@@ -54,18 +55,18 @@ struct DetailTodoList: View {
                         .foregroundColor((colorScheme == .dark) ? .white : .black)
                     
                     Text("Description")
-
                     
                     VStack(alignment: .leading) {
                         HStack{
                             Text(todoList.eventDescription!)
                                 .lineLimit(nil)
-                                .padding()
+                                .padding(.horizontal)
+                                .padding(.vertical, 10)
                             Spacer()
                         }
                         Spacer()
-                    }.frame(height: 400)
-                        .overlay(
+                    }
+                    .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(
                                     (colorScheme == .dark) ? .white : .black,

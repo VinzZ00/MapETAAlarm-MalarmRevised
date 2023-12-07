@@ -41,7 +41,7 @@ struct SearchPageView: View {
                         NavigationLink(destination: {
                             return GeometryReader { prox in
                                 GeometryReader { prox in
-                                    MapViewRepresentable(size: prox.size, locationName: $viewModel.locationName, error: $viewModel.error, selectedTransport: $viewModel.selectedTransport, tappedCoordinate: $viewModel.tappedCoordinate, canUpdate: true)
+                                    MapViewRepresentable(size: prox.size, userCoordinate: viewModel.locationService.lastLocation.coordinate, locationName: $viewModel.locationName, error: $viewModel.error, selectedTransport: $viewModel.selectedTransport, tappedCoordinate: $viewModel.tappedCoordinate, canUpdate: true)
                                         .navigationTitle("Map")
                                         .navigationBarTitleDisplayMode(.inline)
                                 }

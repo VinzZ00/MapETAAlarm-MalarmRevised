@@ -16,7 +16,7 @@ class FormViewModel : ObservableObject {
     @Published var eventName : String = "";
     @Published var eventDescription : String = "";
     @Published var selectedTime : Date = Date();
-    @Published var locationManager = LocationManager.shared
+    @Published var locationService = LocationManager.shared
     
     lazy var saveTodoList = AddTodoListUseCase()
     lazy var timeEstimationCalculation = TimeEstimationRequest.shared
