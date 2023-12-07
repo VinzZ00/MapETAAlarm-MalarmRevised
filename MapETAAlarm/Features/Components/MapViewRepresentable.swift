@@ -11,13 +11,100 @@ import MapKit
 
 struct MapViewRepresentable : UIViewRepresentable {
     
+    typealias UIViewType = MKMapView
+    var size : CGSize
+    var locationService = LocationManager.shared
+    
+    @Binding var locationName : String
+    @Binding var error : NSError?
+    @Binding var selectedTransport : TransportationType
+    @Binding var tappedCoordinate : CLLocationCoordinate2D?
+    @State var route : MKPolyline?
+    @Environment(\.dismiss) private var dismiss
+    
+    var canUpdate : Bool
+    
+    func makeUIView(context: Context) -> UIViewType {
+        let mkMapview = MKMapView()
+        
+        mkMapview.delegate = context.coordinator
+        mkMapview.frame = CGRect(origin: CGPointZero, size: size)
+        
+        if canUpdate {
+            mkMapview.userTrackingMode = .followWithHeading
+            
+            let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
+            mkMapview.addGestureRecognizer(tapGesture)
+        }
+        
+        return mkMapview
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        uiView.frame = CGRect(origin: CGPointZero, size: size)
+        
+        // MARK: update annotation
+        context.coordinator.updateAnnotations(mapView: uiView, uCoordinate: locationService.lastLocation.coordinate , dCoordinate : tappedCoordinate)
+        
+        // MARK: update Route
+        if let coordinate = tappedCoordinate {
+            locationService.startLocationUpdates()
+            let userCoordinate = locationService.lastLocation.coordinate
+            
+            let request = MKDirections.Request()
+            
+            // MARK: Source Destination
+            request.source = MKMapItem(placemark: MKPlacemark(coordinate: userCoordinate))
+            request.destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
+            
+            // MARK: Transportation Type
+            if selectedTransport == .Walking {
+                request.transportType = .walking
+            } else {
+                request.transportType = .automobile
+            }
+            
+            // MARK: Direction Request
+            let direction : MKDirections = MKDirections(request: request)
+            
+            direction.calculate { resp, err in
+                if err != nil {
+                    print("Error giving direction Calculation with Err  : \(err?.localizedDescription)")
+                    self.error = NSError(domain: "Direction gagal di kalkulasi", code: -100)
+                }
+                
+                guard let route = resp?.routes.first else {
+                    print("route tidak ditemukan Error")
+                    self.error = NSError(domain: "Route tidak di temukan", code: -99)
+                    return
+                }
+                
+//                let region : MKCoordinateRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+                
+                uiView.removeOverlays(uiView.overlays)
+                uiView.addOverlay(route.polyline)
+//                uiView.setRegion(region, animated: true)
+                
+                
+            }
+        }
+        if tappedCoordinate != nil {
+            zoomToFit(mapView: uiView, coordinates: [self.locationService.lastLocation.intoCLLocation2D(), self.tappedCoordinate!])
+        } else {
+            zoomToFit(mapView: uiView, coordinates: [self.locationService.lastLocation.intoCLLocation2D()])
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
     
     class Coordinator : NSObject, MKMapViewDelegate{
         
         init(_ parent : MapViewRepresentable) {
             self.parent = parent
         }
-        
+        var reverseGeocoding = Reversegeocoding.shared
         var parent : MapViewRepresentable
         
         var userAnnotation : MKPointAnnotation?
@@ -68,7 +155,25 @@ struct MapViewRepresentable : UIViewRepresentable {
             let tapPoint = gesture.location(in: mapView)
             let tapCoordinate = mapView.convert(tapPoint, toCoordinateFrom: mapView)
             parent.tappedCoordinate = tapCoordinate
-            reverseGeocodeCoordinate(CLLocationCoordinate2D(latitude: tapCoordinate.latitude, longitude: tapCoordinate.longitude))
+            reverseGeocoding.reverseGeocodeCoordinate(CLLocationCoordinate2D(latitude: tapCoordinate.latitude, longitude: tapCoordinate.longitude)) { [weak self] placemark in
+                
+//              Retrieve location name
+                if self != nil {
+                    if let name = placemark.name, let locality = placemark.locality {
+                        self!.parent.locationName = "\(name), \(locality)"
+                    } else if let locality = placemark.locality {
+                        self!.parent.locationName = locality
+                    } else {
+                        self!.parent.locationName = "Unknown"
+                    }
+                } else {
+//                  TODO: Handling error
+                    fatalError("Self is nill")
+                }
+                
+            }
+            
+            
             
             withAnimation {
                 if parent.canUpdate {
@@ -76,47 +181,6 @@ struct MapViewRepresentable : UIViewRepresentable {
                 }
             }
         }
-        
-        func reverseGeocodeCoordinate(_ coordinate: CLLocationCoordinate2D) {
-            let geocoder = CLGeocoder()
-            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-            
-            geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
-                guard let placemark = placemarks?.first, error == nil else {
-                    // Handle error
-                    print("No PlaceMark For that Coordinate.")
-                    return
-                }
-                
-                // Retrieve location name
-                if let name = placemark.name, let locality = placemark.locality {
-                    self?.parent.locationName = "\(name), \(locality)"
-                } else if let locality = placemark.locality {
-                    self?.parent.locationName = locality
-                } else {
-                    self?.parent.locationName = "Unknown"
-                }
-            }
-        }
-        
-        
-    }
-    
-    typealias UIViewType = MKMapView
-    var size : CGSize
-    var locationService = CoreLocationHandler.shared
-
-    @Binding var locationName : String
-    @Binding var error : NSError?
-    @Binding var selectedTransport : Int
-    @Binding var tappedCoordinate : CLLocationCoordinate2D?
-    @State var route : MKPolyline?
-    @Environment(\.dismiss) private var dismiss
-    
-    var canUpdate : Bool
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
     }
     
     func zoomToFit(mapView : UIViewType, coordinates: [CLLocationCoordinate2D]) {
@@ -138,77 +202,5 @@ struct MapViewRepresentable : UIViewRepresentable {
         
         mapView.setRegion(region, animated: true)
     }
-    
-    func makeUIView(context: Context) -> UIViewType {
-        let mkMapview = MKMapView()
-        
-        mkMapview.delegate = context.coordinator
-        mkMapview.frame = CGRect(origin: CGPointZero, size: size)
-        
-        if canUpdate {
-            mkMapview.userTrackingMode = .followWithHeading
-            
-            let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
-            mkMapview.addGestureRecognizer(tapGesture)
-        }
-        
-        return mkMapview
-    }
-    
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        uiView.frame = CGRect(origin: CGPointZero, size: size)
-        
-        // MARK: update annotation
-        context.coordinator.updateAnnotations(mapView: uiView, uCoordinate: locationService.lastLocation.coordinate , dCoordinate : tappedCoordinate)
-        
-        // MARK: update Route
-        if let coordinate = tappedCoordinate {
-            let userCoordinate = locationService.lastLocation.coordinate
-            
-            let request = MKDirections.Request()
-            
-            // MARK: Source Destination
-            request.source = MKMapItem(placemark: MKPlacemark(coordinate: userCoordinate))
-            request.destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
-            
-            // MARK: Transportation Type
-            if selectedTransport == 0 {
-                request.transportType = .walking
-            } else {
-                request.transportType = .automobile
-            }
-            
-            // MARK: Direction Request
-            let direction : MKDirections = MKDirections(request: request)
-            
-            direction.calculate { resp, err in
-                if err != nil {
-                    print("Error giving direction Calculation")
-                    self.error = NSError(domain: "Direction gagal di kalkulasi", code: -100)
-                }
-                
-                guard let route = resp?.routes.first else {
-                    print("route tidak ditemukan Error")
-                    self.error = NSError(domain: "Route tidak di temukan", code: -99)
-                    return
-                }
-                
-                let region : MKCoordinateRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-
-                uiView.removeOverlays(uiView.overlays)
-                uiView.addOverlay(route.polyline)
-                uiView.setRegion(region, animated: true)
-                
-                
-            }
-        }
-        if tappedCoordinate != nil {
-            zoomToFit(mapView: uiView, coordinates: [self.locationService.lastLocation.intoCLLocation2D(), self.tappedCoordinate!])
-        } else {
-            zoomToFit(mapView: uiView, coordinates: [self.locationService.lastLocation.intoCLLocation2D()])
-        }
-    }
-    
-    
 }
 

@@ -8,15 +8,12 @@
 import Foundation
 import CoreData
 
-protocol AddTodoListProtocol {
-    
-}
 
-class AddTodoListUseCase : AddTodoListProtocol {
+class AddTodoListUseCase {
     var repo = LocalRepository()
 //    static let shared = AddTodoListUseCase()
     
     func call(moc : NSManagedObjectContext, todoList : TodoList) async throws {
-        try await repo.CoreData.saveTodoList(moc: moc, todolist: todoList)
+        try await repo.CoreData.saveRecord(moc: moc, todolist: todoList)
     }
 }

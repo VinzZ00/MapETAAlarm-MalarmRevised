@@ -13,7 +13,7 @@ struct FormView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) var dismiss
     
-    var availableTransportation : [String] = ["Walking", "Car"];
+    var availableTransportation : [String] = ["Walking", "Auto Mobile"];
     
     var body: some View {
         NavigationStack {
@@ -68,9 +68,11 @@ struct FormView: View {
                             Text("Want to go by?")
                             Spacer()
                             Picker("Transportation type", selection: $viewModel.searchPageViewModel.selectedTransport) {
-                                ForEach(0..<availableTransportation.count, id : \.self) {
-                                    idx in
-                                    Text(availableTransportation[idx]).tag(idx)
+                                
+                                ForEach(availableTransportation, id : \.self) {
+                                    trans in
+                                    Text(trans)
+                                        .tag(TransportationType(rawValue: trans)!)
                                 }
                             }.pickerStyle(.menu)
                         }.padding(.bottom, 8)
@@ -101,11 +103,9 @@ struct FormView: View {
                             fatalError("Tapped Coordinate is not available")
                         }
                         
-                        let todolist : TodoList = TodoList(dateTime: viewModel.selectedTime, eventDescription: viewModel.eventDescription, uLatitude: viewModel.locationManager.lastLocation.coordinate.latitude, uLongitude: viewModel.locationManager.lastLocation.coordinate.longitude, dLatitude: tappedCoordinate.latitude, dLongitude: tappedCoordinate.longitude, name: viewModel.eventName, status: "Incomplete", transportationType: (viewModel.searchPageViewModel.selectedTransport == 0) ? "Walking" : "Car")
+                        let todolist : TodoList = TodoList(dateTime: viewModel.selectedTime, eventDescription: viewModel.eventDescription, uLatitude: viewModel.locationManager.lastLocation.coordinate.latitude, uLongitude: viewModel.locationManager.lastLocation.coordinate.longitude, dLatitude: tappedCoordinate.latitude, dLongitude: tappedCoordinate.longitude, name: viewModel.eventName, status: "Incomplete", transportationType: (viewModel.searchPageViewModel.selectedTransport == .Walking) ? "Walking" : "Auto Mobile")
                         
-                        
-                        
-                        viewModel.getETA(source: viewModel.locationManager.lastLocation.coordinate, destination: viewModel.searchPageViewModel.tappedCoordinate!) {
+                        viewModel.timeEstimationCalculation.getETA(source: viewModel.locationManager.lastLocation.coordinate, destination: viewModel.searchPageViewModel.tappedCoordinate!, transporationType: viewModel.searchPageViewModel.selectedTransport) {
                             response, err in
                             if let error  = err {
                                 print("Error calculate ETA, with Description : \(error.localizedDescription)")
@@ -114,8 +114,6 @@ struct FormView: View {
                             if let resp = response {
                                 
                                 let calendar : Calendar = Calendar.current
-                                
-                                
                                 
                                 let dateComponent = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: viewModel.selectedTime.addingTimeInterval(-resp.expectedTravelTime))
                                 

@@ -9,16 +9,16 @@ import Foundation
 import CoreData
 
 protocol CoreDataDataSourceProtocol {
-    func GetTodoList(moc : NSManagedObjectContext) async -> Result<[TodoListNS], Error>
+    func getRecord(moc : NSManagedObjectContext) async -> Result<[TodoListNS], Error>
     
-    func saveTodoList(moc : NSManagedObjectContext, todolist : TodoList) async throws
+    func saveRecord(moc : NSManagedObjectContext, todolist : TodoList) async throws
     
-    func updateTodoList(moc : NSManagedObjectContext, todolist : TodoList) async throws
+    func updateRecord(moc : NSManagedObjectContext, todolist : TodoList) async throws
 }
 
 class CoreDataDataSource : CoreDataDataSourceProtocol {
     
-    func GetTodoList(moc : NSManagedObjectContext) async -> Result<[TodoListNS], Error> {
+    func getRecord(moc : NSManagedObjectContext) async -> Result<[TodoListNS], Error> {
         
         let fetchRequest = TodoListNS.fetchRequest()
         
@@ -33,7 +33,7 @@ class CoreDataDataSource : CoreDataDataSourceProtocol {
         }
     }
     
-    func saveTodoList(moc : NSManagedObjectContext, todolist : TodoList) async throws {
+    func saveRecord(moc : NSManagedObjectContext, todolist : TodoList) async throws {
         guard let nsTodolist = todolist.intoNS(moc: moc) else {
             fatalError("todo list can't be converted into NSObject")
         }
@@ -42,11 +42,11 @@ class CoreDataDataSource : CoreDataDataSourceProtocol {
         
     }
     
-    func updateTodoList(moc : NSManagedObjectContext, todolist : TodoList) async throws {
+    func updateRecord(moc : NSManagedObjectContext, todolist : TodoList) async throws {
         
         var datas : [TodoListNS]?
         
-        switch await self.GetTodoList(moc: moc) {
+        switch await self.getRecord(moc: moc) {
         case .success(let fdata):
             datas = fdata
         case .failure(let failure):
@@ -73,4 +73,22 @@ class CoreDataDataSource : CoreDataDataSourceProtocol {
         
     }
     
+    func deleteTodoList(moc : NSManagedObjectContext, todolist : TodoList) async throws {
+        var datas : [TodoListNS]?
+        
+        switch await self.getRecord(moc: moc) {
+        case .success(let fdata):
+            datas = fdata
+        case .failure(let failure):
+            throw failure
+        }
+        
+        if datas != nil {
+            if let willBeDeleted = datas?.first(where: { tdlist in
+                tdlist.uuid! == todolist.id
+            }) {
+                moc.delete(willBeDeleted)
+            }
+        }
+    }
 }

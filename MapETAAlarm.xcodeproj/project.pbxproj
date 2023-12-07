@@ -33,6 +33,12 @@
 		ACA483492B1CDC8700B9E7D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA483442B1CDC8700B9E7D7 /* AppDelegate.swift */; };
 		ACA4834F2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACA4834D2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodeld */; };
 		ACDEA1E52B20DF0100FA5462 /* CLLocation2D+Equitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEA1E42B20DF0100FA5462 /* CLLocation2D+Equitable.swift */; };
+		ACDEA1EB2B21E1C500FA5462 /* DetailTodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEA1EA2B21E1C500FA5462 /* DetailTodoListView.swift */; };
+		ACDEA1ED2B2207F600FA5462 /* DetailTodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEA1EC2B2207F600FA5462 /* DetailTodoListViewModel.swift */; };
+		ACDEA1EF2B22136900FA5462 /* DeleteTodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEA1EE2B22136900FA5462 /* DeleteTodoList.swift */; };
+		ACDEA1F22B2214DB00FA5462 /* TimeEstimationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEA1F12B2214DB00FA5462 /* TimeEstimationRequest.swift */; };
+		ACDEA1F52B221C7E00FA5462 /* TransportationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEA1F42B221C7E00FA5462 /* TransportationType.swift */; };
+		ACDEA1F92B22240500FA5462 /* ReverseGeocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEA1F82B22240500FA5462 /* ReverseGeocoding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +82,12 @@
 		ACA4834E2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		ACA483562B1CEA6200B9E7D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACDEA1E42B20DF0100FA5462 /* CLLocation2D+Equitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation2D+Equitable.swift"; sourceTree = "<group>"; };
+		ACDEA1EA2B21E1C500FA5462 /* DetailTodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTodoListView.swift; sourceTree = "<group>"; };
+		ACDEA1EC2B2207F600FA5462 /* DetailTodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTodoListViewModel.swift; sourceTree = "<group>"; };
+		ACDEA1EE2B22136900FA5462 /* DeleteTodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoList.swift; sourceTree = "<group>"; };
+		ACDEA1F12B2214DB00FA5462 /* TimeEstimationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEstimationRequest.swift; sourceTree = "<group>"; };
+		ACDEA1F42B221C7E00FA5462 /* TransportationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationType.swift; sourceTree = "<group>"; };
+		ACDEA1F82B22240500FA5462 /* ReverseGeocoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseGeocoding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +138,8 @@
 			children = (
 				ACA483402B1CDC8700B9E7D7 /* CoreLocationManager.swift */,
 				AC0CD4DE2B1F794700F959DC /* SearchCompleterObserver.swift */,
+				ACDEA1F12B2214DB00FA5462 /* TimeEstimationRequest.swift */,
+				ACDEA1F82B22240500FA5462 /* ReverseGeocoding.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -150,6 +164,7 @@
 		AC5F404E2B1CECBD00B38FC5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				ACDEA1F32B221C6A00FA5462 /* Enumeration */,
 				AC5F404F2B1CECF600B38FC5 /* Entity */,
 				AC5F40812B1D03CE00B38FC5 /* Usecases */,
 			);
@@ -191,6 +206,7 @@
 		AC5F40682B1CEFF000B38FC5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				ACDEA1E72B21E1A000FA5462 /* DetailTodoList */,
 				AC5F406C2B1CF05E00B38FC5 /* Components */,
 				AC0CD4D42B1E125900F959DC /* SearchPage */,
 				AC5F408F2B1D0E3700B38FC5 /* Form */,
@@ -257,6 +273,7 @@
 				AC5F40822B1D03DF00B38FC5 /* FetchTodoList.swift */,
 				AC5F40862B1D088100B38FC5 /* AddTodoList.swift */,
 				AC5F40882B1D091500B38FC5 /* UpdateTodoList.swift */,
+				ACDEA1EE2B22136900FA5462 /* DeleteTodoList.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -380,6 +397,39 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		ACDEA1E72B21E1A000FA5462 /* DetailTodoList */ = {
+			isa = PBXGroup;
+			children = (
+				ACDEA1E92B21E1AE00FA5462 /* View */,
+				ACDEA1E82B21E1A900FA5462 /* ViewModel */,
+			);
+			path = DetailTodoList;
+			sourceTree = "<group>";
+		};
+		ACDEA1E82B21E1A900FA5462 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ACDEA1EC2B2207F600FA5462 /* DetailTodoListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ACDEA1E92B21E1AE00FA5462 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ACDEA1EA2B21E1C500FA5462 /* DetailTodoListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ACDEA1F32B221C6A00FA5462 /* Enumeration */ = {
+			isa = PBXGroup;
+			children = (
+				ACDEA1F42B221C7E00FA5462 /* TransportationType.swift */,
+			);
+			path = Enumeration;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -490,6 +540,7 @@
 			files = (
 				ACA483452B1CDC8700B9E7D7 /* CoreDataManager.swift in Sources */,
 				AC5F40772B1CF11E00B38FC5 /* MapViewRepresentable.swift in Sources */,
+				ACDEA1EF2B22136900FA5462 /* DeleteTodoList.swift in Sources */,
 				ACA483462B1CDC8700B9E7D7 /* CoreLocationManager.swift in Sources */,
 				AC5F407D2B1CF60700B38FC5 /* CLLocation+CLLocation2D.swift in Sources */,
 				ACA4834F2B1CDE2F00B9E7D7 /* CoreDataModel.xcdatamodeld in Sources */,
@@ -500,16 +551,21 @@
 				AC5F40852B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift in Sources */,
 				AC5F40832B1D03DF00B38FC5 /* FetchTodoList.swift in Sources */,
 				AC0CD4DA2B1E12A600F959DC /* SearchPageViewModel.swift in Sources */,
+				ACDEA1F52B221C7E00FA5462 /* TransportationType.swift in Sources */,
 				AC5F40572B1CECF600B38FC5 /* LocalRepository.swift in Sources */,
+				ACDEA1ED2B2207F600FA5462 /* DetailTodoListViewModel.swift in Sources */,
 				ACDEA1E52B20DF0100FA5462 /* CLLocation2D+Equitable.swift in Sources */,
+				ACDEA1F22B2214DB00FA5462 /* TimeEstimationRequest.swift in Sources */,
 				AC5F40562B1CECF600B38FC5 /* TodoList.swift in Sources */,
 				AC5F40922B1DD69E00B38FC5 /* FormView.swift in Sources */,
 				AC5F40892B1D091500B38FC5 /* UpdateTodoList.swift in Sources */,
 				AC0CD4DF2B1F794700F959DC /* SearchCompleterObserver.swift in Sources */,
 				ACA483492B1CDC8700B9E7D7 /* AppDelegate.swift in Sources */,
+				ACDEA1EB2B21E1C500FA5462 /* DetailTodoListView.swift in Sources */,
 				AC5F408B2B1D0AB700B38FC5 /* TodoListView.swift in Sources */,
 				AC5F40952B1DD75300B38FC5 /* FormViewModel.swift in Sources */,
 				AC5F40702B1CF0EB00B38FC5 /* listComponent.swift in Sources */,
+				ACDEA1F92B22240500FA5462 /* ReverseGeocoding.swift in Sources */,
 				AC5F408E2B1D0AE000B38FC5 /* TodoListViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

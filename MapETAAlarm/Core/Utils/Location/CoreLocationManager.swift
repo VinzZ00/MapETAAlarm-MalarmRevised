@@ -8,10 +8,10 @@ import os
 import Foundation
 import CoreLocation
 
-@MainActor class CoreLocationHandler : ObservableObject {
+@MainActor class LocationManager : ObservableObject {
     var logger :  Logger = Logger(subsystem: "com.AA.ETAMapAlarm", category: "CoreLocationHandler.swift")
     
-    static let shared = CoreLocationHandler()
+    static let shared = LocationManager()
     let manager : CLLocationManager
     var backgroundActivity : CLBackgroundActivitySession?
     

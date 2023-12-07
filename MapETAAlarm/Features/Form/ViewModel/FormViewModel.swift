@@ -6,21 +6,20 @@
 //
 
 import Foundation
-import MapKit
+import CoreLocation
 import CoreData
-
-
+import UserNotifications
 
 class FormViewModel : ObservableObject {
-    lazy var saveTodoList = AddTodoListUseCase()
-    
     @Published var searchPageViewModel : SearchPageViewModel = SearchPageViewModel()
     @Published var error : NSError?
     @Published var eventName : String = "";
     @Published var eventDescription : String = "";
     @Published var selectedTime : Date = Date();
-    @Published var locationManager = CoreLocationHandler.shared
+    @Published var locationManager = LocationManager.shared
     
+    lazy var saveTodoList = AddTodoListUseCase()
+    lazy var timeEstimationCalculation = TimeEstimationRequest.shared
     
     func saveToCoreData(todolist : TodoList, moc : NSManagedObjectContext) async {
         do {
@@ -28,24 +27,6 @@ class FormViewModel : ObservableObject {
         } catch {
             // TODO: Handle this error
             fatalError("Failed to save to coreData")
-        }
-    }
-    
-    func getETA(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D, completion: @escaping (MKDirections.ETAResponse?, Error?) -> Void) {
-        let sourcePlacemark = MKPlacemark(coordinate: source)
-        let destinationPlacemark = MKPlacemark(coordinate: destination)
-
-        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
-        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-
-        let request = MKDirections.Request()
-        request.source = sourceMapItem
-        request.destination = destinationMapItem
-        request.transportType = .automobile
-
-        let directions = MKDirections(request: request)
-        directions.calculateETA { (response, error) in
-            completion(response, error)
         }
     }
     

@@ -16,11 +16,12 @@ struct TodoListView: View {
                 LazyVStack {
                     ForEach(viewModel.todolists) {
                         tdlist in
-                        NavigationLink(value: tdlist) {
+                        NavigationLink {
+                            DetailTodoList(todoList: tdlist, viewModel: viewModel.detailTodoListViewModel)
+                        } label: {
                             listCellView(todoList: tdlist)
+
                         }
-                    }.navigationDestination(for: TodoList.self) { tdlist in
-                        // TODO: Create viewModel for the formView first
                     }
                 }
             }

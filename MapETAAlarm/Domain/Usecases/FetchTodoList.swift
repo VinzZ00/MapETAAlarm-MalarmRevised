@@ -8,16 +8,14 @@
 import Foundation
 import CoreData
 
-protocol FetchTodoListProtocol {
-    
-}
 
-class FetchTodoListUseCase : FetchTodoListProtocol {
+
+class FetchTodoListUseCase {
     let repository : LocalRepository = LocalRepository()
 //    static let shared = FetchTodoListUseCase()
     
     func call(moc : NSManagedObjectContext) async throws -> [TodoList]{
-        switch await repository.CoreData.GetTodoList(moc: moc) {
+        switch await repository.CoreData.getRecord(moc: moc) {
         case .success(let data):
             return data.map{$0.intoDTO()}
         case .failure(let failure):
