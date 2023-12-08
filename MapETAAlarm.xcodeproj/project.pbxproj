@@ -479,7 +479,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "MapETAAlarm" */;
+			buildConfigurationList = ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "OURETA" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -802,7 +802,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "MapETAAlarm" */ = {
+		ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "OURETA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACA483362B1CDBDE00B9E7D7 /* Debug */,
