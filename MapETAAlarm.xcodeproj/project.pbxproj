@@ -39,6 +39,7 @@
 		ACDEA1F22B2214DB00FA5462 /* TimeEstimationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEA1F12B2214DB00FA5462 /* TimeEstimationRequest.swift */; };
 		ACDEA1F52B221C7E00FA5462 /* TransportationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEA1F42B221C7E00FA5462 /* TransportationType.swift */; };
 		ACDEA1F92B22240500FA5462 /* ReverseGeocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDEA1F82B22240500FA5462 /* ReverseGeocoding.swift */; };
+		ACEFA4142B230E2D009B1A1F /* RefreshTodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFA4132B230E2D009B1A1F /* RefreshTodoList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		ACDEA1F12B2214DB00FA5462 /* TimeEstimationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEstimationRequest.swift; sourceTree = "<group>"; };
 		ACDEA1F42B221C7E00FA5462 /* TransportationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationType.swift; sourceTree = "<group>"; };
 		ACDEA1F82B22240500FA5462 /* ReverseGeocoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseGeocoding.swift; sourceTree = "<group>"; };
+		ACEFA4132B230E2D009B1A1F /* RefreshTodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTodoList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 				AC5F40862B1D088100B38FC5 /* AddTodoList.swift */,
 				AC5F40882B1D091500B38FC5 /* UpdateTodoList.swift */,
 				ACDEA1EE2B22136900FA5462 /* DeleteTodoList.swift */,
+				ACEFA4132B230E2D009B1A1F /* RefreshTodoList.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -479,7 +482,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "OURETA" */;
+			buildConfigurationList = ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "MapETAAlarm" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -541,6 +544,7 @@
 				AC0CD4D82B1E127D00F959DC /* SearchPageView.swift in Sources */,
 				AC5F40872B1D088100B38FC5 /* AddTodoList.swift in Sources */,
 				AC5F40852B1D053300B38FC5 /* TodoListDTO+TodoListNS.swift in Sources */,
+				ACEFA4142B230E2D009B1A1F /* RefreshTodoList.swift in Sources */,
 				AC5F40832B1D03DF00B38FC5 /* FetchTodoList.swift in Sources */,
 				AC0CD4DA2B1E12A600F959DC /* SearchPageViewModel.swift in Sources */,
 				ACDEA1F52B221C7E00FA5462 /* TransportationType.swift in Sources */,
@@ -802,7 +806,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "OURETA" */ = {
+		ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "MapETAAlarm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACA483362B1CDBDE00B9E7D7 /* Debug */,

@@ -39,6 +39,7 @@ struct TodoListView: View {
             })
             .onAppear {
                 Task {
+                    await viewModel.refreshTodoListStatus(moc : moc)
                     await viewModel.getTodoList(moc: moc)
                 }
             }

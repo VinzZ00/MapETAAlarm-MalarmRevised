@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import Combine
 
 
 struct MapViewRepresentable : UIViewRepresentable {
@@ -49,7 +50,6 @@ struct MapViewRepresentable : UIViewRepresentable {
         
         // MARK: update Route
         if let coordinate = tappedCoordinate {
-//            locationService.startLocationUpdates()
             let userCoordinate = userCoordinate
             
             let request = MKDirections.Request()
@@ -80,11 +80,11 @@ struct MapViewRepresentable : UIViewRepresentable {
                     return
                 }
                 
-//                let region : MKCoordinateRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+                //                let region : MKCoordinateRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
                 
                 uiView.removeOverlays(uiView.overlays)
                 uiView.addOverlay(route.polyline)
-//                uiView.setRegion(region, animated: true)
+                //                uiView.setRegion(region, animated: true)
                 
                 
             }
@@ -94,6 +94,7 @@ struct MapViewRepresentable : UIViewRepresentable {
         } else {
             zoomToFit(mapView: uiView, coordinates: [userCoordinate])
         }
+        
     }
     
     func makeCoordinator() -> Coordinator {

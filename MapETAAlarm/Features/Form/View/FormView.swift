@@ -129,9 +129,7 @@ struct FormView: View {
                             await viewModel.saveToCoreData(todolist: todolist, moc: moc)
                         }
                         
-                        //                        withAnimation {
-                        //                            viewModel.showForm = false;
-                        //                        }
+                        dismiss()
                     } label: {
                         Text("Done")
                             .font(.system(size : 16, weight: .regular))
