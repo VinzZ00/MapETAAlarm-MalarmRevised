@@ -112,7 +112,7 @@ struct DetailTodoList: View {
                         response, err in
                         if err != nil {
                             // TODO: Handle Error
-                            fatalError("Error calculate ETA erro : \(err?.localizedDescription)")
+                            fatalError("Error calculate ETA erro : \(err!.localizedDescription)")
                         }
                         
                         var minutes : Int = 0

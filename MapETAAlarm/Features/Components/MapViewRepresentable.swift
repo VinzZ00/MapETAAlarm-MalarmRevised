@@ -70,7 +70,7 @@ struct MapViewRepresentable : UIViewRepresentable {
             
             direction.calculate { resp, err in
                 if err != nil {
-                    print("Error giving direction Calculation with Err  : \(err?.localizedDescription)")
+                    print("Error giving direction Calculation with Err  : \(err!.localizedDescription)")
                     self.error = NSError(domain: "Direction gagal di kalkulasi", code: -100)
                 }
                 
