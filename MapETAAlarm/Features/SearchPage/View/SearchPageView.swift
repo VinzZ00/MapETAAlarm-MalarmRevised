@@ -101,10 +101,13 @@ struct SearchPageView: View {
                                     viewModel.tappedCoordinate = coordinate;
                                     
                                     print(coordinate)
+                                    
+                                    dismiss()
                                 }
+                                
                             }
                             
-                            dismiss()
+                            
                         }
                 }
                 
