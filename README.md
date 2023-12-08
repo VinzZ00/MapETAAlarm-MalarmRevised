@@ -1,14 +1,14 @@
 Requirement : 
-OS : IOS 17
-Network Connectivity : Yes
-Location Service Permission : Yes
-Notification Permision : Yes
+- OS : IOS 17
+- Network Connectivity : Yes
+- Location Service Permission : Yes
+- Notification Permision : Yes
 
 Tested In :
-iPhone 6 Plus
-iPhone 11 Pro Max
-iPhone 14 Pro Max
-iPhone 14
+- iPhone 6 Plus
+- iPhone 11 Pro Max
+- iPhone 14 Pro Max
+- iPhone 14
 
 Technology Used : 
 1. SwiftUI
