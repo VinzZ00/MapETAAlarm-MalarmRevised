@@ -138,12 +138,12 @@ struct FormView: View {
                     }
                 }
             }
-//            .navigationDestination(isPresented: $viewModel.searchPageViewModel.searchPage) {
-//                SearchPageView(viewModel: viewModel.searchPageViewModel)
-//            }
             .padding()
             .onAppear {
                 viewModel.locationService.startLocationUpdates()
+            }
+            .onDisappear {
+                viewModel.locationService.stopLocationUpdates()
             }
         }
     }
