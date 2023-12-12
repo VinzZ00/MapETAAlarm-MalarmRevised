@@ -59,7 +59,7 @@
 		AC5F40502B1CECF600B38FC5 /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		AC5F40522B1CECF600B38FC5 /* LocalRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
 		AC5F40552B1CECF600B38FC5 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
-		AC5F405E2B1CEFA000B38FC5 /* MapETAAlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapETAAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC5F405E2B1CEFA000B38FC5 /* Our ETATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Our ETATests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5F40602B1CEFA000B38FC5 /* MapETAAlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapETAAlarmTests.swift; sourceTree = "<group>"; };
 		AC5F40672B1CEFAF00B38FC5 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		AC5F406F2B1CF0EB00B38FC5 /* listComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listComponent.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		AC5F408D2B1D0AE000B38FC5 /* TodoListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewViewModel.swift; sourceTree = "<group>"; };
 		AC5F40912B1DD69E00B38FC5 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		AC5F40942B1DD75300B38FC5 /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
-		ACA4832A2B1CDBDA00B9E7D7 /* MapETAAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapETAAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACA4832A2B1CDBDA00B9E7D7 /* Our ETA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Our ETA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA483312B1CDBDE00B9E7D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACA483342B1CDBDE00B9E7D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ACA4833F2B1CDC8700B9E7D7 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -318,8 +318,8 @@
 		ACA4832B2B1CDBDA00B9E7D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACA4832A2B1CDBDA00B9E7D7 /* MapETAAlarm.app */,
-				AC5F405E2B1CEFA000B38FC5 /* MapETAAlarmTests.xctest */,
+				ACA4832A2B1CDBDA00B9E7D7 /* Our ETA.app */,
+				AC5F405E2B1CEFA000B38FC5 /* Our ETATests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -428,9 +428,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AC5F405D2B1CEFA000B38FC5 /* MapETAAlarmTests */ = {
+		AC5F405D2B1CEFA000B38FC5 /* Our ETATests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC5F40642B1CEFA000B38FC5 /* Build configuration list for PBXNativeTarget "MapETAAlarmTests" */;
+			buildConfigurationList = AC5F40642B1CEFA000B38FC5 /* Build configuration list for PBXNativeTarget "Our ETATests" */;
 			buildPhases = (
 				AC5F405A2B1CEFA000B38FC5 /* Sources */,
 				AC5F405B2B1CEFA000B38FC5 /* Frameworks */,
@@ -441,14 +441,14 @@
 			dependencies = (
 				AC5F40632B1CEFA000B38FC5 /* PBXTargetDependency */,
 			);
-			name = MapETAAlarmTests;
+			name = "Our ETATests";
 			productName = MapETAAlarmTests;
-			productReference = AC5F405E2B1CEFA000B38FC5 /* MapETAAlarmTests.xctest */;
+			productReference = AC5F405E2B1CEFA000B38FC5 /* Our ETATests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		ACA483292B1CDBDA00B9E7D7 /* MapETAAlarm */ = {
+		ACA483292B1CDBDA00B9E7D7 /* Our ETA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACA483382B1CDBDE00B9E7D7 /* Build configuration list for PBXNativeTarget "MapETAAlarm" */;
+			buildConfigurationList = ACA483382B1CDBDE00B9E7D7 /* Build configuration list for PBXNativeTarget "Our ETA" */;
 			buildPhases = (
 				ACA483262B1CDBDA00B9E7D7 /* Sources */,
 				ACA483272B1CDBDA00B9E7D7 /* Frameworks */,
@@ -458,9 +458,9 @@
 			);
 			dependencies = (
 			);
-			name = MapETAAlarm;
+			name = "Our ETA";
 			productName = MapETAAlarm;
-			productReference = ACA4832A2B1CDBDA00B9E7D7 /* MapETAAlarm.app */;
+			productReference = ACA4832A2B1CDBDA00B9E7D7 /* Our ETA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -482,7 +482,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "MapETAAlarm" */;
+			buildConfigurationList = ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "Our ETA" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -495,8 +495,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ACA483292B1CDBDA00B9E7D7 /* MapETAAlarm */,
-				AC5F405D2B1CEFA000B38FC5 /* MapETAAlarmTests */,
+				ACA483292B1CDBDA00B9E7D7 /* Our ETA */,
+				AC5F405D2B1CEFA000B38FC5 /* Our ETATests */,
 			);
 		};
 /* End PBXProject section */
@@ -571,7 +571,7 @@
 /* Begin PBXTargetDependency section */
 		AC5F40632B1CEFA000B38FC5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ACA483292B1CDBDA00B9E7D7 /* MapETAAlarm */;
+			target = ACA483292B1CDBDA00B9E7D7 /* Our ETA */;
 			targetProxy = AC5F40622B1CEFA000B38FC5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -591,7 +591,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapETAAlarm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MapETAAlarm";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Our ETA.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Our ETA";
 			};
 			name = Debug;
 		};
@@ -609,7 +609,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapETAAlarm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MapETAAlarm";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Our ETA.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Our ETA";
 			};
 			name = Release;
 		};
@@ -803,7 +803,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AC5F40642B1CEFA000B38FC5 /* Build configuration list for PBXNativeTarget "MapETAAlarmTests" */ = {
+		AC5F40642B1CEFA000B38FC5 /* Build configuration list for PBXNativeTarget "Our ETATests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC5F40652B1CEFA000B38FC5 /* Debug */,
@@ -812,7 +812,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "MapETAAlarm" */ = {
+		ACA483252B1CDBDA00B9E7D7 /* Build configuration list for PBXProject "Our ETA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACA483362B1CDBDE00B9E7D7 /* Debug */,
@@ -821,7 +821,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACA483382B1CDBDE00B9E7D7 /* Build configuration list for PBXNativeTarget "MapETAAlarm" */ = {
+		ACA483382B1CDBDE00B9E7D7 /* Build configuration list for PBXNativeTarget "Our ETA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACA483392B1CDBDE00B9E7D7 /* Debug */,

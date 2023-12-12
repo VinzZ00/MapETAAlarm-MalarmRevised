@@ -31,6 +31,7 @@ import CoreLocation
     func startLocationUpdates() {
         if self.manager.authorizationStatus == .notDetermined {
             self.manager.requestWhenInUseAuthorization()
+            self.manager.desiredAccuracy = kCLLocationAccuracyBest
         }
         
         Task {
