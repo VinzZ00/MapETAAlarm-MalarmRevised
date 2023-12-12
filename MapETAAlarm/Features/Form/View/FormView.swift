@@ -38,7 +38,7 @@ struct FormView: View {
                         .padding(.bottom, 8)
                         
                         NavigationLink(destination: SearchPageView(viewModel: viewModel.searchPageViewModel)) {
-                            TextField((viewModel.searchPageViewModel.locationName != "") ? viewModel.searchPageViewModel.locationName : "Search", text: $viewModel.searchPageViewModel.locationName)
+                            TextField((viewModel.searchPageViewModel.locationName != "") ? viewModel.searchPageViewModel.locationName : "Search Destination", text: $viewModel.searchPageViewModel.locationName)
                                 .padding()
                                 .background(Color(.systemGray6))
                                 .cornerRadius(8)
@@ -89,7 +89,18 @@ struct FormView: View {
                             .frame(height: 150)
                     }
                 }
+                
                 Spacer()
+            }
+            .alert(isPresented: $viewModel.showAlert) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text(viewModel.error?.localizedDescription ?? ""),
+                    dismissButton: .default(Text("OK")) {
+                        viewModel.error = nil
+                        viewModel.showAlert = false
+                    }
+                )
             }
             .navigationTitle("Form")
             .toolbar{
@@ -97,12 +108,19 @@ struct FormView: View {
                     Button {
                         
                         // TODO: create TodolistDTO and then save to coreData
+                        
+//                        if viewModel.searchPageViewModel.tappedCoordinate != nil && viewModel.eventDescription "" ||     {
+//                            
+//                        }
                         guard let tappedCoordinate = viewModel.searchPageViewModel.tappedCoordinate else {
                             //TODO: Remove when the error has been handled
                             viewModel.error = NSError(domain: "no latitude and longitude found for destination", code: 96)
-                            fatalError("Tapped Coordinate is not available")
+                            viewModel.showAlert = true
+                            return
                         }
                         
+                        
+
                         let todolist : TodoList = TodoList(dateTime: viewModel.selectedTime, eventDescription: viewModel.eventDescription, uLatitude: viewModel.locationService.lastLocation.coordinate.latitude, uLongitude: viewModel.locationService.lastLocation.coordinate.longitude, dLatitude: tappedCoordinate.latitude, dLongitude: tappedCoordinate.longitude, name: viewModel.eventName, status: "Incomplete", transportationType: (viewModel.searchPageViewModel.selectedTransport == .Walking) ? "Walking" : "Auto Mobile")
                         
                         viewModel.timeEstimationCalculation.getETA(source: viewModel.locationService.lastLocation.coordinate, destination: viewModel.searchPageViewModel.tappedCoordinate!, transporationType: viewModel.searchPageViewModel.selectedTransport) {
@@ -134,10 +152,12 @@ struct FormView: View {
                         Text("Done")
                             .font(.system(size : 16, weight: .regular))
                             .foregroundColor(Color.blue)
-                        
+                            
                     }
+                    
                 }
             }
+            
             .padding()
             .onAppear {
                 viewModel.locationService.startLocationUpdates()

@@ -12,6 +12,7 @@ import UserNotifications
 
 class FormViewModel : ObservableObject {
     @Published var searchPageViewModel : SearchPageViewModel = SearchPageViewModel()
+    @Published var showAlert : Bool = false
     @Published var error : NSError?
     @Published var eventName : String = "";
     @Published var eventDescription : String = "";
