@@ -29,14 +29,14 @@ struct DetailTodoList: View {
                     
                     DatePicker(
                         "Selected Time",
-                        selection: .constant(todoList.dateTime!),
+                        selection: .constant(todoList.dateTime ?? Date()),
                         displayedComponents: [.date, .hourAndMinute]
                     )
                     .disabled(true)
                     .padding(.bottom, 8)
                     
                     GeometryReader { prox in
-                        MapViewRepresentable(size: prox.size, userCoordinate: CLLocationCoordinate2D(latitude: todoList.uLatitude!, longitude: todoList.uLongitude!), locationName: .constant(""), error: $viewModel.MapKitError, selectedTransport: .constant(TransportationType(rawValue: todoList.transportationType!)!), tappedCoordinate: .constant(CLLocationCoordinate2D(latitude: todoList.dLatitude!, longitude: todoList.dLongitude!)), canUpdate: false)
+                        MapViewRepresentable(size: prox.size, userCoordinate: CLLocationCoordinate2D(latitude: todoList.uLatitude ?? 0.0, longitude: todoList.uLongitude ?? 0.0), locationName: .constant(""), error: $viewModel.MapKitError, selectedTransport: .constant(TransportationType(rawValue: todoList.transportationType ?? "Walking") ?? .Walking), tappedCoordinate: .constant(CLLocationCoordinate2D(latitude: todoList.dLatitude ?? 0.0, longitude: todoList.dLongitude ?? 0.0)), canUpdate: false)
                             .cornerRadius(10)
                             .shadow(radius: 2, x: 2, y: 1)
                             .padding(.bottom, 8)
@@ -58,7 +58,7 @@ struct DetailTodoList: View {
                     
                     VStack(alignment: .leading) {
                         HStack{
-                            Text(todoList.eventDescription!)
+                            Text(todoList.eventDescription ?? "")
                                 .lineLimit(nil)
                                 .padding(.horizontal)
                                 .padding(.vertical, 10)
@@ -108,21 +108,37 @@ struct DetailTodoList: View {
                 }
                 .padding()
                 .onAppear {
-                    viewModel.timeEstimationCalculation.getETA(source: CLLocationCoordinate2D(latitude: todoList.uLatitude!, longitude: todoList.uLongitude!), destination: CLLocationCoordinate2D(latitude: todoList.dLatitude!, longitude: todoList.dLongitude!), transporationType: TransportationType(rawValue: todoList.transportationType!)!) {
-                        response, err in
-                        if err != nil {
-                            // TODO: Handle Error
-                            fatalError("Error calculate ETA erro : \(err!.localizedDescription)")
+                    if(
+                        todoList.uLatitude != nil &&
+                        todoList.uLongitude != nil &&
+                        todoList.dLatitude != nil &&
+                        todoList.dLongitude != nil &&
+                        todoList.transportationType != nil
+                    ) {
+                        viewModel.timeEstimationCalculation.getETA(source: CLLocationCoordinate2D(latitude: todoList.uLatitude!, longitude: todoList.uLongitude!), destination: CLLocationCoordinate2D(latitude: todoList.dLatitude!, longitude: todoList.dLongitude!), transporationType: TransportationType(rawValue: todoList.transportationType!)!) {
+                            response, err in
+                            if err != nil {
+                                // TODO: Handle Error
+                                fatalError("Error calculate ETA erro : \(err!.localizedDescription)")
+                            }
+                            
+                            var minutes : Int = 0
+                            if let resp = response {
+                                minutes = Int(resp.expectedTravelTime / 60)
+                            }
+                            viewModel.estimatedTime = minutes;
                         }
-                        
-                        var minutes : Int = 0
-                        if let resp = response {
-                            minutes = Int(resp.expectedTravelTime / 60)
-                        }
-                        viewModel.estimatedTime = minutes;
+                    } else {
+                        viewModel.alert = true
                     }
                 }
-            }.navigationTitle(Text("\(todoList.name!.isEmpty ? "No Name" : todoList.name!)"))
+            }
+            .alert(isPresented: $viewModel.alert, content: {
+                Alert(title: Text("Error"), message: Text("Todolist Not Found"), dismissButton: .default(Text("Return"), action: {
+                    dismiss()
+                }))
+            })
+            .navigationTitle(Text("\(todoList.name ?? "No Name")"))
         }
     }
 }

@@ -20,7 +20,6 @@ struct TodoListView: View {
                             DetailTodoList(todoList: tdlist, viewModel: viewModel.detailTodoListViewModel)
                         } label: {
                             listCellView(todoList: tdlist)
-
                         }
                     }
                 }
